@@ -20,15 +20,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://gl.glrm.fr',
+  url: 'https://abderrahmenlamloumi.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/Deca-Compiler-Java/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'GL10', // Usually your GitHub org/user name.
-  projectName: 'gl10', // Usually your repo name.
+  organizationName: 'abderrahmenlamloumi', // Usually your GitHub org/user name.
+  projectName: 'Deca-Compiler-Java', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -135,7 +135,7 @@ const config: Config = {
 
   stylesheets: [
     {
-      href: '/katex.min.css',
+      href: 'katex.min.css',
       type: 'text/css',
     },
   ],
