@@ -17,6 +17,15 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            href="https://github.com/abderrahmenlamloumi/Deca-Compiler-Java"
+            target="_blank"
+            rel="noopener noreferrer">
+            Voir l'implémentation sur GitHub
+          </Link>
+        </div>
       </div>
     </header>
   );

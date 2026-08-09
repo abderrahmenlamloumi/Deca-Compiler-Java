@@ -7,11 +7,11 @@ sidebar_position: 1
 
 À haut niveau, le compilateur prend entrée du code Deca, le valide, et produit le cas échéant un fichier assembleur pour l'interpréteur IMA.
 
-[JavaDoc disponible](https://gl.glrm.fr/javadoc/index.html)
+[JavaDoc disponible](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/javadoc/index.html)
 
 ## Diagramme de classe
 
-[Ouvrir dans une nouvelle fenêtre](https://gl.glrm.fr/img/deca.png) 
+[Ouvrir dans une nouvelle fenêtre](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/img/deca.png)
 
 ![Diagramme de classe](/img/deca.png)
 

@@ -59,31 +59,31 @@ On a également ajouté des options sur le compilateur :
 ## Rendu final pré-soutenance
 
 ### Instructions
-- [Variables](https://gl.glrm.fr/docs/references/instructions/variable)
-- [Conditions](https://gl.glrm.fr/docs/references/instructions/conditions)
-- [while](https://gl.glrm.fr/docs/references/instructions/while)
-- [readInt(), readFloat()](https://gl.glrm.fr/docs/references/instructions/read)
-- [print(), println(), printx(), printlnx()](https://gl.glrm.fr/docs/references/instructions/conditions)
-- [return](https://gl.glrm.fr/docs/references/instructions/return)
+- [Variables](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/variable)
+- [Conditions](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/conditions)
+- [while](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/while)
+- [readInt(), readFloat()](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/read)
+- [print(), println(), printx(), printlnx()](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/conditions)
+- [return](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/instructions/return)
 
 ### Expressions
-- [Comparaisons logiques](https://gl.glrm.fr/docs/references/expressions/cmp)
-- [Opérations arithmétiques](https://gl.glrm.fr/docs/references/expressions/arithmetique)
-- [Opérateur unaire](https://gl.glrm.fr/docs/references/expressions/unary_op)
-- [Null](https://gl.glrm.fr/docs/references/expressions/null)
+- [Comparaisons logiques](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/expressions/cmp)
+- [Opérations arithmétiques](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/expressions/arithmetique)
+- [Opérateur unaire](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/expressions/unary_op)
+- [Null](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/expressions/null)
 
 ### Classes
 
-- [Classes](https://gl.glrm.fr/docs/references/classes/class)
-- [Héritage](https://gl.glrm.fr/docs/references/classes/heritage)
-- [Objet](https://gl.glrm.fr/docs/references/classes/objet)
-- [Conversion](https://gl.glrm.fr/docs/references/classes/conversion)
-- [Méthodes Assembleur](https://gl.glrm.fr/docs/references/classes/assembleur)
+- [Classes](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/classes/class)
+- [Héritage](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/classes/heritage)
+- [Objet](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/classes/objet)
+- [Conversion](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/classes/conversion)
+- [Méthodes Assembleur](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/classes/assembleur)
 
 ### Erreurs
 
-- [Erreurs à la compilation](https://gl.glrm.fr/docs/references/errors/compilation)
-- [Erreurs à l'exécution](https://gl.glrm.fr/docs/references/errors/runtime)
+- [Erreurs à la compilation](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/errors/compilation)
+- [Erreurs à l'exécution](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/errors/runtime)
 
 ### Extensions
 
@@ -91,13 +91,13 @@ On a également ajouté des options sur le compilateur :
 Activer toutes les extensions avec l'option `-f`
 :::
 
-- [Tableaux](https://gl.glrm.fr/docs/references/extensions/arrays) `-farray`
-- [Math](https://gl.glrm.fr/docs/references/extensions/math)
+- [Tableaux](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/arrays) `-farray`
+- [Math](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/math)
 - [Messages d'erreurs](/docs/references/extensions/errorHighlighting.md) `-ffancy-errors`
-- [String](https://gl.glrm.fr/docs/references/extensions/string) `-fconcat-string`
-- [User IO](https://gl.glrm.fr/docs/references/extensions/userio)
-- [Paint](https://gl.glrm.fr/docs/references/extensions/paint)
-- [Assertions](https://gl.glrm.fr/docs/references/extensions/assert) `-fassert`
+- [String](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/string) `-fconcat-string`
+- [User IO](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/userio)
+- [Paint](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/paint)
+- [Assertions](https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/docs/references/extensions/assert) `-fassert`
 
 
 

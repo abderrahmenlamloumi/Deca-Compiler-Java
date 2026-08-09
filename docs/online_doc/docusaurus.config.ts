@@ -119,7 +119,7 @@ const config: Config = {
           docsPluginId: "validation"
         },
         {
-          href: 'https://gl.glrm.fr/javadoc/index.html',
+          href: 'https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/javadoc/index.html',
           label: 'JavaDoc',
           position: 'left',
         },

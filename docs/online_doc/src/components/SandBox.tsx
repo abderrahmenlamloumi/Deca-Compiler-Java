@@ -9,7 +9,7 @@ const SandBox = ({precode = ""}) => {
 
     const execute = useCallback(async () => {
         setIsLoading(true);
-        const promise = await fetch("https://gl.glrm.fr/compile", {
+        const promise = await fetch("https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/compile", {
             method: "POST",
             body: code,
         })
