@@ -1,0 +1,13 @@
+// Description:
+//    Programme levant une erreur de lexer pour un backslash final
+//
+// Resultats:
+//    Erreur 'token recognition error'
+//
+// Historique:
+//    cree le 02/06/2025
+
+
+{
+    println("test d'un backslash à la fin \");
+}

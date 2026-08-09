@@ -1,0 +1,11 @@
+// Teste l'évaluation d'expressions arithmétiques imbriquées complexes dans les classes A et B, vérifiant l'impact sur les registres et la propagation des valeurs entre les objets et les expressions arithmétiques.
+class B {
+    int x = 1 + (2 + (3 + (4 + (5 + (6 + (7 - (8 + (9 + (10 + (11 + (12 + (13 - (14 + (15 + (16 + (17 + (18 * (19 + 20))))))))))))))))));
+}
+
+class A {
+    int x = 1 + (2 + (3 + (4 + (5 + (6 + (7 + (8 + (9 + (10 + (11 - (new B().x + (13 - (14 + (15 + (16 + (17 + (18 * (19 + 20))))))))))))))))));
+}
+{
+    println(new A().x);
+}

@@ -1,0 +1,15 @@
+//Teste l'accès à la variable x de la classe B en effectuant un cast de A vers B, affichant ainsi 1 (valeur de x dans B).
+class A{
+    int x = 0;
+}
+
+class B extends A{
+    int x = 1;
+}
+class C extends A{
+}
+
+{
+    A a = new B();
+    println( ((B) (a)).x );
+}

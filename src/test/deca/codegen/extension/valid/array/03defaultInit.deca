@@ -1,0 +1,19 @@
+//test des initialisations par defaut des types de variables supporte dans deca
+{
+    int[] arr = new int[3];
+    float[] arr2 = new float[3];
+    Object[] arr3 = new Object[3];
+    int[][] arr4 = new int[][3];
+    string[] arr5 = new string[3];
+    println(arr[0], " ", arr[1], " ", arr[2]);
+    println(arr2[0], " ", arr2[1], " ", arr2[2]);
+    if (arr3[0] == null && arr3[1] == null && arr3[2] == null) {
+        println("All elements in arr3 are null");
+    }
+    if (arr4[0] == null && arr4[1] == null && arr4[2] == null) {
+        println("All elements in arr4 are null");
+    }
+    if (arr5[0] == null && arr5[1] == null && arr5[2] == null) {
+        println("All elements in arr5 are null");
+    }
+}

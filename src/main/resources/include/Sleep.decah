@@ -1,0 +1,23 @@
+// Suspend l'exécution pendant 'sec' secondes à l'aide de l'horloge système.
+// Implémentation bas niveau avec une boucle d'attente active (busy-wait).
+class Time{
+
+    float clock() asm("
+        CLK
+        LOAD R1, R0
+        RTS
+    ");
+
+    void sleep(float sec) asm("
+        LOAD -3(SP), R0
+        CLK
+        ADD R1, R0
+        Sleep:
+            CLK
+            CMP R1, R0
+            BLE End_sleep
+            BRA Sleep
+        End_Sleep:
+        RTS
+    ");
+}

@@ -1,0 +1,4 @@
+// Try to use a float as a array size during initialization.
+{
+    new int[3.14];
+}

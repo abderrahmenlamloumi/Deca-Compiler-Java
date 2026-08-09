@@ -1,0 +1,4 @@
+//test du print d'un readfloat avec un entier
+{
+    println(readFloat());
+}

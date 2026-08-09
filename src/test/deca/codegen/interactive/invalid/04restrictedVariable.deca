@@ -1,0 +1,6 @@
+//test de l'option limitant le nombre de variable
+// runtime-options: -p 0
+{
+    int x = 0;
+    println(x);
+}

@@ -1,0 +1,5 @@
+// provoque une erreur interne sur votre compilo
+{
+  int a = new int();
+  println(a);
+}

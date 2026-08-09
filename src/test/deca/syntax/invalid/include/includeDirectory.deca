@@ -1,0 +1,6 @@
+// Include d'un directory (pas possible)
+
+#include "includeDirectory.decah"
+
+{
+}

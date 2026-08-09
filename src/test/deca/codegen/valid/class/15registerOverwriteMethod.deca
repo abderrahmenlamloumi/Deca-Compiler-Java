@@ -1,0 +1,12 @@
+//Teste l'évaluation d'expressions arithmétiques complexes dans la méthode bar() de la classe A, et vérifie l'écrasement des registres lors de l'utilisation de ces valeurs dans une autre expression.
+class A {
+    int x = 10;
+
+    int bar() {
+        return 1+(2+(3+(4+(5+(6+(7+(8+(9+(x)))))))));
+    }
+}
+{
+    A a = new A();
+    print(1+(2+(3+(4+(5+(6+(7+(8+(9+(a.bar()))))))))));
+}

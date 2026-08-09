@@ -1,0 +1,17 @@
+//test de profondeur des dimensions d'array
+{
+    int[][] a = new int[][3];
+    int[][][] b = new int[][][3];
+
+    a[0] = new int[2];
+    a[0][0] = 3;
+
+    println(a[0][0]);
+
+    b[0] = new int[][2];
+    b[0][0] = new int[2];
+    b[0][0][0] = 4;
+
+
+    println(b[0][0][0]);
+}

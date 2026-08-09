@@ -1,0 +1,16 @@
+//Teste la manipulation de références et l'affectation d'objets dans une chaîne complexe, affichant 4 en raison des affectations successives entre les objets A.
+class A {
+    A a;
+    int val;
+}
+
+
+{
+    A as = new A();
+    A a2 = new A();
+    A a = as;
+    as.val = 3;
+    a2.val= 4;
+    (a.a = a2).a = (a = new A());
+    println(as.a.val);//4
+}

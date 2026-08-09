@@ -1,0 +1,11 @@
+//test de la saturation des registres avec l'option limitant la pile
+// runtime-options: -p 15
+class Foo {
+    int foo() {
+       return 1 + (2 + (3 + (4 + (5 + (6 + (7 - (8 + (9 + (10 + (11 + (12 + 13)))))))))));
+    }
+}
+
+{
+    new Foo().foo();
+}

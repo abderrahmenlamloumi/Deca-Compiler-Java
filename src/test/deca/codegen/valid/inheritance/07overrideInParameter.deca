@@ -1,0 +1,27 @@
+//test de l'override d'un attribut du parent dans la methode de l'enfant
+class A{
+    int x = 1;
+}
+
+class B extends A{
+    void updateX(){
+        this.x = 10;
+    }
+}
+
+class C {
+
+    void callable(A a){
+        println(a.x);
+    }
+
+}
+
+{
+    A a = new A();
+    B b = new B();
+    C c = new C();
+    b.updateX();
+    c.callable(a);
+    c.callable(b);
+}

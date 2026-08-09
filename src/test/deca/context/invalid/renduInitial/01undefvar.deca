@@ -1,0 +1,7 @@
+// Try to print an undef var after a valid print
+{
+	int z ;
+	z=1 ;
+	println(z);
+	println(y);
+}

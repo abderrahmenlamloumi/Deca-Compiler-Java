@@ -1,0 +1,6 @@
+// un attribut ne peut pas être de type non-existant
+
+class Holder {
+    inconnu b; // Invalide
+}
+{}

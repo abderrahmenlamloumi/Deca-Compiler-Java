@@ -1,0 +1,33 @@
+// Grenoble INP - Ensimag projet GL -*- mode: java -*-
+// Library for class LinearBezier of Deca, coded in Deca
+
+#include "Math.decah"
+#include "Bezier.decah"
+
+
+class LinearBezier extends Bezier {
+    Math m = new Math();
+
+    void set(Point start, Point end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    Point getPointAtCurve(float t) {
+        Point p;
+        float x = start.getX() * (1 - t) + end.getX() * t;
+        float y = start.getY() * (1 - t) + end.getY() * t;
+        float rx = end.getX() - start.getX();
+        float ry = end.getY() - start.getY();
+
+
+
+        p = new Point();
+        p.x = m.round(x);
+        p.y = m.round(y);
+        return p;
+    }
+
+}
+
+// End of Deca LinearBezier library

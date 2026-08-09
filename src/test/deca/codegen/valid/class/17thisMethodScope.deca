@@ -1,0 +1,13 @@
+// Teste l'utilisation d'une variable locale qui masque une variable d'instance de même nom, et affiche la valeur de la variable locale dans la méthode.
+class A {
+    boolean a = true;
+    void foo()
+    {
+        int a = 8;
+        print(a);
+    }
+}
+{
+    A w = new A();
+    w.foo();
+}

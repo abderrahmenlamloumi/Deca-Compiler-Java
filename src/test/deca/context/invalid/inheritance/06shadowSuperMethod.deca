@@ -1,0 +1,11 @@
+// Impossible de surcharger le nom d'une méthode parente en nom d'attribut de l'enfant
+
+class Meal {
+    boolean isReady() {
+        return false;
+    }
+}
+
+class Bread extends Meal {
+    boolean isReady = true;
+}

@@ -1,0 +1,8 @@
+// Downcast impossible : assignation d'une instance de parent à un enfant
+
+class A {}
+class B extends A {}
+
+{
+    B a = new A();
+}

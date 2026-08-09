@@ -1,0 +1,11 @@
+// Verifie qu'on ne peut pas instantier une classe qui n'existe pas
+
+class Holder {
+    int x = 1;
+    int y = 2;
+    int z = 3;
+}
+{
+    Holder h = new A();
+    println(h.x, h.y, h.z);
+}

@@ -1,0 +1,6 @@
+// un attribut ne peut pas être de type void
+
+class Holder {
+    void a; // Invalide
+}
+{}

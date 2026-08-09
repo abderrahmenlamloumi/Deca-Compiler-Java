@@ -1,0 +1,9 @@
+//Teste l'initialisation de y à partir de x dans la classe Holder, affichant la valeur 5 de y.
+class Holder {
+    int x = 5;
+    int y = x;
+}
+{
+    Holder h = new Holder();
+    println(h.y);
+}

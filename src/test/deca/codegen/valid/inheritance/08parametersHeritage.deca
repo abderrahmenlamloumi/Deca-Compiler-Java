@@ -1,0 +1,28 @@
+//test override methode du parent
+class A{
+    int test() {
+        return 1;
+    }
+}
+
+class B extends A{
+    int test(){
+        return 2;
+    }
+}
+
+class C {
+
+    void callable(A a){
+        println(a.test());
+    }
+
+}
+
+{
+    A a = new A();
+    B b = new B();
+    C c = new C();
+    c.callable(a);
+    c.callable(b);
+}

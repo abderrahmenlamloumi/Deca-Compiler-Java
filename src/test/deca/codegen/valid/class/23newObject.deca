@@ -1,0 +1,7 @@
+// Teste la comparaison de l'instance d'un objet avec elle-même en utilisant ==, vérifiant que l'objet est toujours égal à lui-même, et affichant "same instance".
+{
+    Object o = new Object();
+    if (o == o) {
+        println("same instance");
+    }
+}

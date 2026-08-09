@@ -1,0 +1,10 @@
+// Teste l'initialisation de y en fonction de x, mais comme x est initialisé après, x prend la valeur 0, et le programme affiche 0.
+class Holder {
+    int y = x*x;
+    int x = 5;
+
+}
+{
+    Holder h = new Holder();
+    println(h.y);
+}

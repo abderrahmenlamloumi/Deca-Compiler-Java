@@ -1,0 +1,13 @@
+// Impossible de surcharger une méthode parente dans la classe enfant si les paramètres ne sont pas dans le même ordre
+
+class Entity {
+    void attack(Entity target, int damage) {
+        println("Entity attacks with ", damage, " damage");
+    }
+}
+
+class Player extends Entity {
+    void attack(int damage, Entity target) {
+        println("Player attacks with ", damage, " damage");
+    }
+}

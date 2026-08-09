@@ -1,0 +1,13 @@
+//Teste l'initialisation en chaîne des variables x, y, et z dans la classe A, affichant toutes les trois la valeur 10.
+class A{
+    int x;
+    int y;
+    int z;
+}
+{
+    A a = new A();
+    a.x=(a.y=(a.z=10));
+    println(a.x);
+    println(a.y);
+    println(a.z);
+}

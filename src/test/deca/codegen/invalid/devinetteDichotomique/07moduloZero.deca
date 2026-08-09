@@ -1,0 +1,5 @@
+// Module par 0 renvoie une erreur (sauf si option omettant cette erreur activée)
+
+{
+    println(10 % 0);
+}

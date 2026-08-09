@@ -1,0 +1,7 @@
+//test du printx avec une variable cast
+{
+    int x = 5;
+    float y = x;
+
+    printx(y);
+}

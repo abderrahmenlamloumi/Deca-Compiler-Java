@@ -1,0 +1,6 @@
+// Vérifie qu'un type primitif n'ai pas d'attribue
+
+{
+    int n = 5.abs;
+    println(n);
+}

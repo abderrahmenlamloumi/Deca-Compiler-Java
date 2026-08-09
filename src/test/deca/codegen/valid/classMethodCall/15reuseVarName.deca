@@ -1,0 +1,18 @@
+//Teste l'utilisation de noms de variables locaux identiques à ceux des paramètres dans différentes méthodes, pour vérifier la portée et la résolution correcte des identifiants.
+class Foo {
+    void foo(int test) {
+        int other = 42;
+        println(other, " ", test);
+    }
+
+    void bar(int other) {
+        int test = 24;
+        println(test, " ", other);
+    }
+}
+
+{
+    Foo foo = new Foo();
+    foo.foo(100);
+    foo.bar(200);
+}

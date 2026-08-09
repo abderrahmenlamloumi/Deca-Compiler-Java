@@ -1,0 +1,52 @@
+//Teste l'opérateur instanceof avec des objets de classes liées par héritage (Entity, Creature, Monster, Player) et une classe indépendante (World), y compris le cas particulier de null.
+class Entity {
+    int x;
+    int y;
+}
+
+class Creature extends Entity {
+    int health;
+}
+
+class Monster extends Creature {
+    int damage;
+    int attackSpeed;
+}
+
+class Player extends Creature {
+    int saturation;
+}
+
+class World {
+    Entity entity;
+}
+
+{
+    Entity entity = new Monster();
+    boolean b;
+
+    if (null instanceof Entity) { println("true"); } else { println("false"); }
+    if (new Entity() instanceof Entity) { println("true"); } else { println("false"); }
+    if (new Monster() instanceof Entity) { println("true"); } else { println("false"); }
+    if (new Player() instanceof Entity) { println("true"); } else { println("false"); }
+    if (new World() instanceof Entity) { println("true"); } else { println("false"); }
+
+    println();
+    if (entity instanceof World) { println("true"); } else { println("false"); }
+    if (entity instanceof Entity) { println("true"); } else { println("false"); }
+    if (entity instanceof Creature) { println("true"); } else { println("false"); }
+    if (entity instanceof Monster) { println("true"); } else { println("false"); }
+    if (entity instanceof Player) { println("true"); } else { println("false"); }
+
+    println();
+    b = entity instanceof World;
+    if (b) { println("true"); } else { println("false"); }
+    b = entity instanceof Entity;
+    if (b) { println("true"); } else { println("false"); }
+    b = entity instanceof Creature;
+    if (b) { println("true"); } else { println("false"); }
+    b = entity instanceof Monster;
+    if (b) { println("true"); } else { println("false"); }
+    b = entity instanceof Player;
+    if (b) { println("true"); } else { println("false"); }
+}

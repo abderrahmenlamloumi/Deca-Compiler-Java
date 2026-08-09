@@ -1,0 +1,13 @@
+//Teste l'initialisation de x dans B avec la valeur de y dans A, affichant 5.
+class B {
+   int x = new A().y;
+}
+
+class A {
+    int y = 5;
+}
+
+{
+    B b = new B();
+    println(b.x);
+}

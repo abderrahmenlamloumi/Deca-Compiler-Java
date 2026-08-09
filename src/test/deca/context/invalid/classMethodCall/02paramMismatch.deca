@@ -1,0 +1,9 @@
+// Vérifie que les mauvais paramètres passé à une méthode déclenche une erreur
+
+class Foo {
+    void bar(int first, boolean skip) {}
+}
+
+{
+    new Foo().bar(true, 4);
+}

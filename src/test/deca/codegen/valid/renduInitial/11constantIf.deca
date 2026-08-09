@@ -1,0 +1,13 @@
+// Verify branching on a constant boolean
+{
+    if (true) {
+        println("true1");
+    } else {
+        println("false1");
+    }
+    if (false) {
+        println("true2");
+    } else {
+        println("false2");
+    }
+}

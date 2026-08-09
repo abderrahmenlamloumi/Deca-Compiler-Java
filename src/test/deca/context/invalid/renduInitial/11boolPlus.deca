@@ -1,0 +1,4 @@
+// Try an addition on boolean type
+{
+    boolean b = true + true;
+}

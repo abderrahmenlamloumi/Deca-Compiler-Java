@@ -1,0 +1,5 @@
+//Teste la conversion de null en Object et affiche "Success !!" sans erreur.
+{
+Object a = (Object) (null);
+println("Success !!");
+}

@@ -1,0 +1,1 @@
+03arrayToNonArray.deca:2:12: Incompatible types for assignment: expected int, got int[]

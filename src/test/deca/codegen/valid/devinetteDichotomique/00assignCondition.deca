@@ -1,0 +1,9 @@
+//test du assign en condition
+{
+    boolean b;
+    if (b = 5 == 0) {
+        println("true");
+    } else {
+        println("false");
+    }
+}

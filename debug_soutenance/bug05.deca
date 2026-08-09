@@ -1,0 +1,9 @@
+// codegen/invalid
+
+#include "Math.decah"
+
+{
+  Math m = new Math();
+  float f = m.asin(42);
+  println("KO: on aurait dû avoir une erreur \"appel de asin en dehors du domaine\" au lieu de retourner ",f);
+}

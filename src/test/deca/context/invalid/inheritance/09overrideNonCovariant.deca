@@ -1,0 +1,15 @@
+// Impossible de surcharger une méthode parente dans la classe enfant si le type de retour est différent
+
+class Vehicle {
+    int getSpeed() {
+        return 5;
+    }
+}
+
+class Car extends Vehicle {
+    float speed = 10.0;
+
+    float getSpeed() {
+        return speed;
+    }
+}

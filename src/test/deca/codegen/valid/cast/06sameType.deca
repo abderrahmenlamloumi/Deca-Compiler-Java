@@ -1,0 +1,10 @@
+//Teste les conversions de types en affichant 7 comme int, 8.4 comme float, et la valeur 69 de la variable n d'une instance de A.
+class A {
+    int n = 69;
+}
+
+{
+    println((int) (7));
+    println((float) (8.4));
+    println(((A) (new A())).n);
+}

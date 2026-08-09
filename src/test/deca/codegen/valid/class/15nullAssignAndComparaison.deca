@@ -1,0 +1,11 @@
+//Teste les comparaisons d'objets et de variables avec null.
+class A {}
+{
+    A a = null;
+    if (new A() == null) {}
+    if (null == new A() ) {}
+    if (null == a) {
+        println("a is null");
+    }
+    if (null == null) {}
+}

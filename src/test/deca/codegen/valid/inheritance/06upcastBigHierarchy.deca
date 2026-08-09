@@ -1,0 +1,14 @@
+//test de l'heritage a plusieurs couches
+class A {}
+class B extends A {
+    float f = 6;
+}
+class C extends B {}
+class D extends C {}
+class E extends D {}
+
+{
+    E e = new E();
+    B b = e;
+    println(e.f, " ", e.f);
+}

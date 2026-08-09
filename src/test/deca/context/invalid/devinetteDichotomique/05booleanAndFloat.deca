@@ -1,0 +1,7 @@
+// Verifie que l'opérateur && utilise que des opérande boolean
+
+{
+    if (true && 0.0) {
+        println("true");
+    }
+}

@@ -1,0 +1,7 @@
+class A {}
+
+// Try an int as assertion message
+{
+int a = 3;
+assert(a == 3, new A());
+}

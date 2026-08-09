@@ -1,0 +1,4 @@
+//test du print d'un readint d'un nombre invalide
+{
+    println(readInt());
+}

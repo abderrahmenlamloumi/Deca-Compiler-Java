@@ -1,0 +1,20 @@
+//test de dimension d'array dans un objet
+class Test{
+    int x = 5;
+
+    void Hello(){
+        println("Hello");
+    }
+}
+
+{
+    Test[][][] b = new Test[][][3];
+
+    b[0] = new Test[][3];
+    b[0][0] = new Test[2];
+    b[0][0][0] = new Test();
+
+
+    println(b[0][0][0].x);
+    b[0][0][0].Hello();
+}

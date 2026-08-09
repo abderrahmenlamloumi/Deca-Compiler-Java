@@ -1,0 +1,19 @@
+// Description:
+//    Programme minimaliste assignant des int avec un ou plusieurs moins unaires
+//
+// Resultats:
+//    -4
+//    5
+//    -6
+//
+// Historique:
+//    cree le 08/04/2025
+
+{
+        int z = -4;
+        println(z);
+        z = --5;
+        println(z);
+        z = ---6;
+        println(z);
+}

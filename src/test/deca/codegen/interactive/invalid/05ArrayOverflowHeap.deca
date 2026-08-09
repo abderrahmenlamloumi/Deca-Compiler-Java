@@ -1,0 +1,7 @@
+//test de l'allocation memoire d'un tableau avec l'option limitant la memoire
+// compiler-options: -farray
+// runtime-options: -t 1000
+
+{
+    int[] b = new int[10001];
+}

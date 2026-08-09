@@ -1,0 +1,16 @@
+//Teste la comparaison d'objets en utilisant equals(), vérifiant que la comparaison par défaut (référence) ne considère pas x et y comme égaux, même si leurs valeurs internes sont identiques.
+class MutableFloat extends Object {
+    float value;
+}
+
+{
+    MutableFloat x = new MutableFloat();
+    MutableFloat y = new MutableFloat();
+    x.value = 5.0;
+    y.value = x.value;
+    if (x.equals(y)) {
+        println("x and y are equal");
+    } else {
+        println("x and y are not equal");
+    }
+}

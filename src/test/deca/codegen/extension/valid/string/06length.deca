@@ -1,0 +1,6 @@
+//test de la fonction .length sur les strings
+{
+    println("".length());
+    println("hello".length());
+    println(("a" + "b" + "c").length());
+}

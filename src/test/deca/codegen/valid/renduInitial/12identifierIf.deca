@@ -1,0 +1,15 @@
+// Verify branching on a variable
+{
+    boolean b = false;
+    if (b) {
+        println("true1");
+    } else {
+        println("false1");
+    }
+    b = true;
+    if (b) {
+        println("true2");
+    } else {
+        println("false2");
+    }
+}

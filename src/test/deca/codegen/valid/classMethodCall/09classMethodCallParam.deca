@@ -1,0 +1,37 @@
+//Teste la déclaration et l’utilisation de nombreuses variables locales, combinée à une expression arithmétique complexe, pour vérifier la gestion de la pile, l’évaluation correcte des expressions, et l’accès aux variables dans une méthode.
+class A {
+    
+    void hello(){
+        int a = 1;
+        int b = 2;
+        int c = 3;
+        int d = 4;
+        int e = 5;
+        int f = 6;
+        int g = 7;
+        int h = 8;
+        int i = 9;
+        int j = 10;
+        int x = 55;
+        int y = 64654;
+        println(1 + (2 + (3 + (4 + (5 + (6 + (7 - (8 + (9 + (10 + (11 + (12 + (13 - (14 + (15 + (16 + (17 + (18 * (19 + 20)))))))))))))))))));
+        println(x);
+        println(y);
+        println(a);
+        println(b);
+        println(c);
+        println(d);
+        println(e);
+        println(f);
+        println(g);
+        println(h);
+        println(i);
+        println(j);
+    }
+
+}
+{
+
+    A a = new A();
+    a.hello();
+}

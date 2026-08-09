@@ -1,0 +1,4 @@
+//test de valeur negative dans le constructeur des arrays
+{
+    int[] tab = new int[-1];
+}

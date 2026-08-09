@@ -1,0 +1,567 @@
+#include "Point.decah"
+
+
+class MouseEvent extends Point {
+    boolean isPressed = false;
+
+    void set(boolean a, int b, int c){
+        isPressed = a;
+        x = b;
+        y = c;
+    }
+
+    void printData() {
+        print("Mouse ");
+        if (isPressed) {
+            print("pressed ");
+        } else {
+            print("released ");
+        }
+        print("x ", x, " y ", y);
+        println("");
+    }
+}
+
+class UserIO {
+
+    protected boolean inEscapeMode = false;
+    protected boolean boolean1 = false;
+    protected int data1;
+    protected int data2;
+    MouseEvent me;
+    Point screenSize = new Point();
+
+    int callbackOnInputExitable(int exitKey){
+        int x = -1;
+
+        boolean exited = false;
+        while (!exited) {
+            x = readUtf8();
+            while (x == -1 && !exited){
+                if (x == exitKey){
+                    return 1;
+                }
+                x = readUtf8();
+            }
+
+            if (x == 27 && readUtf8() == 91){
+                inEscapeMode = true;
+
+                x = readUtf8();
+                if (x == 77) { // M Mouse Data
+                    x = readUtf8();
+                    if (x == 32) { // Space PRESSED
+                        boolean1 = true;
+                    }
+                    else if (x == 35) { // # RELEASED
+                        boolean1 = false;
+                    }
+
+                    data1 = readUtf8();
+                    data2 = readUtf8();
+
+                    if (data1 != -1 && data2 != -1){
+                        me = new MouseEvent();
+                        me.set(boolean1, data1-33, data2-32);
+                        this.onMouseEvent(me);
+                    }
+                    x = readUtf8();
+                }
+                //Arrow
+                else if (x == 65){
+                    this.onArrowUp();
+                }
+                else if (x == 66){
+                    this.onArrowDown();
+                }
+                else if (x == 67){
+                    this.onArrowRight();
+                }
+                else if (x == 68){
+                    this.onArrowLeft();
+                }
+
+            }
+            else {
+                this.onKeyInput(x);
+                if (x == 10) {
+                    this.onENTERPressed();
+                }
+                if (x == 127) {
+                    this.onDELETEPressed();
+                }
+                if (x == 32) {
+                    this.onSPACEPressed();
+                }
+                else if (x == 97) {
+                    this.onAPressed();
+                }
+                else if (x == 98) {
+                    this.onBPressed();
+                }
+                else if (x == 99) {
+                    this.onCPressed();
+                }
+                else if (x == 100) {
+                    this.onDPressed();
+                }
+                else if (x == 101) {
+                    this.onEPressed();
+                }
+                else if (x == 102) {
+                    this.onFPressed();
+                }
+                else if (x == 103) {
+                    this.onGPressed();
+                }
+                else if (x == 104) {
+                    this.onHPressed();
+                }
+                else if (x == 105) {
+                    this.onIPressed();
+                }
+                else if (x == 106) {
+                    this.onJPressed();
+                }
+                else if (x == 107) {
+                    this.onKPressed();
+                }
+                else if (x == 108) {
+                    this.onLPressed();
+                }
+                else if (x == 109) {
+                    this.onMPressed();
+                }
+                else if (x == 110) {
+                    this.onNPressed();
+                }
+                else if (x == 111) {
+                    this.onOPressed();
+                }
+                else if (x == 112) {
+                    this.onPPressed();
+                }
+                else if (x == 113) {
+                    this.onQPressed();
+                }
+                else if (x == 114) {
+                    this.onRPressed();
+                }
+                else if (x == 115) {
+                    this.onSPressed();
+                }
+                else if (x == 116) {
+                    this.onTPressed();
+                }
+                else if (x == 117) {
+                    this.onUPressed();
+                }
+                else if (x == 118) {
+                    this.onVPressed();
+                }
+                else if (x == 119) {
+                    this.onWPressed();
+                }
+                else if (x == 120) {
+                    this.onXPressed();
+                }
+                else if (x == 121) {
+                    this.onYPressed();
+                }
+                else if (x == 122) {
+                    this.onZPressed();
+                }
+
+            }
+        }
+        return 1;
+    }
+
+    MouseEvent getLastMouseEvent() {
+        return me;
+    }
+
+    int readUtf8() asm("
+        RUTF8;
+        LOAD R1, R0;
+        RTS
+    ");
+
+    Point getScreenSize(){
+        int x = 0;
+        int y = 0;
+        int z = 0;
+        int i = 0;
+        screenSize = new Point();
+        this.setCursorAt(999,999);
+        this.askCursorPosition();
+        z = readUtf8();
+
+        while (z == -1 && i < 1000000){
+            z = readUtf8();
+            i = i + 1;
+        }
+        if (z == 27 && readUtf8() == 91){
+            z = readUtf8();
+            i = 0;
+            while (z != 59 && i < 1000000){
+                y = y * 10 + (z-48);
+                z = readUtf8();
+                i = i + 1;
+            }
+
+            z = readUtf8();
+            i = 0;
+            while (z != 82 && i < 1000000){
+                x = x * 10 + (z-48);
+                z = readUtf8();
+                i = i + 1;
+
+            }
+
+            screenSize.x = x;
+            screenSize.y = y;
+            if (screenSize.y == 1000000) {
+                screenSize.y = 30;
+            }
+        }
+        if (i == 1000000){
+            println(" Failed to get screenSize");
+            screenSize.x = 30;
+            screenSize.y = 30;
+            return screenSize;
+        }
+        return screenSize;
+    }
+
+    void enableMouseInput() asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #63, R1 ; ?
+        WUTF8
+        LOAD #49, R1 ; 1
+        WUTF8
+        LOAD #48, R1 ; 0
+        WUTF8
+        LOAD #48, R1 ; 0
+        WUTF8
+        LOAD #48, R1 ; 0
+        WUTF8
+        LOAD #104, R1 ; h
+        WUTF8
+        WNL
+        RTS
+    ");
+
+    void eraseFullScreen() asm("
+        WSTR \"---------------ERASE---------------\"
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #50, R1 ; 2
+        WUTF8
+        LOAD #74, R1 ; J
+        WUTF8
+        RTS
+    ");
+
+    void eraseLine() asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #75, R1 ; 2
+        WUTF8
+        RTS
+    ");
+
+
+    void setCursorAt(int x, int y) asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD -4(LB), R1 ; Position line
+        WINT
+        LOAD #59, R1 ; ;
+        WUTF8
+        LOAD -3(LB), R1 ; Position column
+        WINT
+        LOAD #72, R1 ; H
+        WUTF8
+        RTS
+    ");
+
+    void askCursorPosition() asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #6, R1 ; 6
+        WINT
+        LOAD #110, R1 ; n
+        WUTF8
+        RTS
+    ");
+
+    void cursorHome() asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #72, R1 ; H
+        WUTF8
+        RTS
+    ");
+
+
+    void printUtf8(int m) asm("
+        LOAD -3(LB), R1
+        WUTF8
+        WNL
+        RTS
+    ");
+
+    void onKeyInput(int key){
+
+    }
+
+    void onMouseEvent(MouseEvent me){
+
+    }
+
+    void sendCommandInt(int intCode) asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD -3(LB), R1 ; intCode
+        WINT
+        LOAD #109, R1 ; [
+        WUTF8
+        RTS
+    ");
+
+    // Color        Foreground code     Background code
+    // Black 	    30 	40
+    // Red 	        31 	41
+    // Green 	    32 	42
+    // Yellow 	    33 	43
+    // Blue 	    34 	44
+    // Magenta  	35 	45
+    // Cyan 	    36 	46
+    // White 	    37 	47
+    // Default 	    39 	49
+
+    void setBlackBackground() {
+        this.sendCommandInt(40);
+    }
+
+    void setRedBackground() {
+        this.sendCommandInt(41);
+    }
+
+    void setGreenBackground() {
+        this.sendCommandInt(42);
+    }
+
+    void setYellowBackground() {
+        this.sendCommandInt(43);
+    }
+
+    void setBlueBackground() {
+        this.sendCommandInt(44);
+    }
+
+    void setMagentaBackground() {
+        this.sendCommandInt(45);
+    }
+
+    void setCyanBackground() {
+        this.sendCommandInt(46);
+    }
+
+    void setWhiteBackground() {
+        this.sendCommandInt(47);
+    }
+
+    void setDefaultBackground() {
+        this.sendCommandInt(47);
+    }
+
+    void setScreenSize(int width, int height) {
+        this.screenSize.x = width;
+        this.screenSize.y = height;
+        setScreenSizeASM(width, height);
+    }
+
+
+    void setScreenSizeASM(int width, int height) asm("
+        LOAD #27, R1 ; ESC
+        WUTF8
+        LOAD #91, R1 ; [
+        WUTF8
+        LOAD #8, R1 ; 8
+        WINT
+        LOAD #59, R1 ; coma
+        WUTF8
+        LOAD -4(LB), R1 ; height
+        WINT
+        LOAD #59, R1 ; coma
+        WUTF8
+        LOAD -3(LB), R1 ; width
+        WINT
+        LOAD #116, R1 ; h
+        WUTF8
+    ");
+
+    void resetStyle() {
+        this.sendCommandInt(0);
+    }
+
+    void onStart(){
+
+    }
+
+    void onArrowUp(){
+
+    }
+
+    void onArrowDown(){
+
+    }
+
+    void onArrowLeft(){
+
+    }
+
+    void onArrowRight(){
+
+    }
+
+    void onNewFrame() {
+
+    }
+
+    void onAPressed(){
+
+    }
+
+    void onBPressed(){
+
+    }
+
+    void onCPressed(){
+
+    }
+
+    void onDPressed(){
+
+    }
+
+    void onEPressed(){
+
+    }
+
+    void onFPressed(){
+
+    }
+
+    void onGPressed(){
+
+    }
+
+    void onHPressed(){
+
+    }
+
+    void onIPressed(){
+
+    }
+
+    void onJPressed(){
+
+    }
+
+    void onKPressed(){
+
+    }
+
+    void onLPressed(){
+
+    }
+
+    void onMPressed(){
+
+    }
+
+    void onNPressed(){
+
+    }
+
+    void onOPressed(){
+
+    }
+
+    void onPPressed(){
+
+    }
+
+    void onQPressed(){
+
+    }
+
+    void onRPressed(){
+
+    }
+
+    void onSPressed(){
+
+    }
+
+    void onTPressed(){
+
+    }
+
+    void onUPressed(){
+
+    }
+
+    void onVPressed(){
+
+    }
+
+    void onWPressed(){
+
+    }
+
+    void onXPressed(){
+
+    }
+
+    void onYPressed(){
+
+    }
+
+    void onZPressed(){
+
+    }
+
+    void onENTERPressed(){
+
+    }
+
+    void onDELETEPressed(){
+
+    }
+
+    void onSPACEPressed(){
+
+    }
+}
+
+
+// End of Deca Math library

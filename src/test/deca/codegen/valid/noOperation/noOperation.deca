@@ -1,0 +1,6 @@
+//test de la grammaire nooperation
+{
+    int x = 0;
+    ;
+    print(x);
+}

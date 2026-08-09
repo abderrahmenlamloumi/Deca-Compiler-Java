@@ -1,0 +1,10 @@
+//Teste la conversion d'un boolean en boolean (sans effet) et affiche "false" car la valeur initiale de a est false.
+{
+    boolean a = false;
+    boolean b = (boolean) (a);
+    if (b){
+        print("true");
+    }else {
+        print("false");
+    }
+}

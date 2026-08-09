@@ -1,0 +1,21 @@
+//Teste l'affichage avec des instructions ASM en appelant greet() pour afficher "Hello, world! I am a "kernel"" et pre(5) pour afficher la valeur 5.
+class Kernel {
+    void greet() asm("
+        WSTR \"Hello, world! I am a \"\"kernel\"\"\"
+        WNL
+        RTS
+    ");
+
+    void pre(int n) asm("
+        LOAD -3(LB), R1
+        WINT
+        WNL
+        RTS
+    ");
+}
+
+{
+    Kernel k = new Kernel();
+    k.greet();
+    k.pre(5);
+}

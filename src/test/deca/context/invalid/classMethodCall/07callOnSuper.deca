@@ -1,0 +1,43 @@
+// Verifie qu'une classe n'appelle pas des méthodes d'une sous classe qui étend la classe parente
+
+class A{
+    void a(){
+        println("a");
+    }
+    void b(){
+        println("b");
+    }
+    void c(){
+        println("c");
+    }
+    void d(){
+        println("d");
+    }
+}
+class B extends A{
+    void b(){
+        println("B");
+    }
+    void d(){
+        println("D");
+    }
+    void e(){
+        println("E");
+    }
+    void f(){
+        println("F");
+    }
+}
+
+{
+    B b = new B();
+    A a = b;
+    a.b();
+    a.a();
+    a.c();
+    a.a();
+    a.f(); // Invalid
+    a.a();
+    a.f(); // Invalid
+    a.a();
+}

@@ -1,0 +1,11 @@
+// Verifie que l'opérateur || attend que des boolean
+
+{
+    int i = 0, x = 42;
+    if ((i = x) || i < x) {
+        print("i <= x: ");
+    } else {
+        print("i > x: ");
+    }
+    println(i, " vs ", x);
+}

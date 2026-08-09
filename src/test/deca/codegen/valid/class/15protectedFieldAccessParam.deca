@@ -1,0 +1,13 @@
+class A {
+    protected int x;
+    void test(B b){
+        b.x = 2;
+        print(b.x);
+    }
+}
+class B extends A {}
+{
+    A a = new A();
+    B b = new B();
+    a.test(b);
+}

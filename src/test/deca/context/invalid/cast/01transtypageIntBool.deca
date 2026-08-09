@@ -1,0 +1,6 @@
+// Vérifie qu'un entier ne peux pas être converti en boolean
+
+{
+    int a = 5;
+    boolean b = (boolean) (a);
+}

@@ -1,0 +1,12 @@
+// Teste l'accès à une variable protégée x héritée de la classe Foo dans la classe dérivée Bar, et l'affichage de la valeur de y, qui utilise x dans l'initialisation.
+class Foo {
+    protected int x = 7;
+}
+
+class Bar extends Foo {
+    int y = x;
+}
+
+{
+    println(new Bar().y);
+}

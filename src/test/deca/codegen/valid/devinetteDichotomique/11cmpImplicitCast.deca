@@ -1,0 +1,9 @@
+//test de comparaison entre un decimal et un entier (cast implicite)
+{
+    if (1 == 1.0) {
+        println("equivalent");
+    }
+    if (1.0 == 1) {
+        println("equivalent");
+    }
+}

@@ -1,0 +1,19 @@
+//test d'override d'une methode du parent
+class Bird {
+    void fly() {
+        println("Bird is flying");
+    }
+}
+
+class Penguin extends Bird {
+    void fly() {
+        println("Penguin cannot fly"); // (this is bad OOP)
+    }
+}
+
+{
+    Bird b = new Bird();
+    Penguin p = new Penguin();
+    b.fly();
+    p.fly();
+}

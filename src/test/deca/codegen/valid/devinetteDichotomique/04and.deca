@@ -1,0 +1,17 @@
+//test du et logique
+{
+    boolean f = false, t = true, b;
+    if (t && f) { println("true"); } else { println("false"); }
+    if (f && t) { println("true"); } else { println("false"); }
+    if (t && t) { println("true"); } else { println("false"); }
+    if (f && f) { println("true"); } else { println("false"); }
+
+    b = t && f;
+    if (b) { println("true"); } else { println("false"); }
+    b = f && t;
+    if (b) { println("true"); } else { println("false"); }
+    b = t && t;
+    if (b) { println("true"); } else { println("false"); }
+    b = f && f;
+    if (b) { println("true"); } else { println("false"); }
+}

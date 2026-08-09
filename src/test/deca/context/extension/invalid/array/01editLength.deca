@@ -1,0 +1,4 @@
+{
+    int[] n = new int[0];
+    n.length = 4;
+}

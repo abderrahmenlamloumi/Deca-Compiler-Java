@@ -1,0 +1,9 @@
+// test d'instanciation d'un objet via une classe avec des attributs
+
+class Foo {
+    int x = 7, y = 8;
+    boolean z;
+}
+{
+    new Foo();
+}

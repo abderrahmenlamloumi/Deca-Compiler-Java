@@ -1,0 +1,10 @@
+// Underflow avec valeur immédiate passée dans une variable (pas de calcul)
+
+{
+    float x = 0.0000000000000000000000000000000000000000000001;
+    if (x == 0.0) {
+        println("Underflow detected");
+    } else {
+        println("No underflow");
+    }
+}

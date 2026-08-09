@@ -1,0 +1,11 @@
+//test du cast d'objet enfant
+class A {}
+class B extends A {
+    int value = 99;
+}
+
+{
+    B b = new B();
+    A a = b;
+    println(b.value);
+}

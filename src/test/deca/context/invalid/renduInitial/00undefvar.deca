@@ -1,0 +1,4 @@
+// Try to print an undef var
+{
+	println(x);
+}

@@ -1,0 +1,12 @@
+//Teste l'accès à la variable x de l'objet A contenu dans y dans la classe Holder, affichant 5 (valeur de x dans A).
+class A{
+    int x = 5;
+}
+class Holder {
+    A y = new A();
+
+}
+{
+     Holder h = new Holder();
+     println(h.y.x);
+}

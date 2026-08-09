@@ -1,0 +1,14 @@
+
+class A {
+    void getB(B b){
+        println(b.x);
+    }
+}
+class B extends A {
+    protected int x = 5;
+}
+{
+    A a = new A();
+    B b = new B();
+    a.getB(b);
+}

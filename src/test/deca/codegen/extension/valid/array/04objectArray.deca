@@ -1,0 +1,22 @@
+//test d'array dans les objets
+class A {
+    void hello() {
+        println("Hello from A");
+    }
+}
+class B extends A {
+    void hello() {
+        println("Hello from B");
+    }
+}
+
+{
+    A[] arr = new A[3];
+    arr[0] = new A();
+    arr[1] = new A();
+    arr[2] = new B();
+
+    arr[0].hello();
+    arr[1].hello();
+    arr[2].hello();
+}

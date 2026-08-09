@@ -1,0 +1,13 @@
+// Parent ne peut pas accéder aux attributs d'un enfant
+
+class Foo {
+    int x;
+}
+class Bar extends Foo {
+    int y;
+}
+
+{
+    Foo foo = new Bar();
+    println(foo.x, " ", foo.y);
+}

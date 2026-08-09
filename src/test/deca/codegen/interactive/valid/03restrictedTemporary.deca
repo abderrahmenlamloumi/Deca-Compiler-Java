@@ -1,0 +1,7 @@
+//test avec limiration des registres et de la pile
+// compiler-options: -r 4
+// runtime-options: -p 2
+{
+    println(1 + (2 + (3 + (4 + 5))));
+    println(1 + (2 + (3 + (4 + 5))));
+}

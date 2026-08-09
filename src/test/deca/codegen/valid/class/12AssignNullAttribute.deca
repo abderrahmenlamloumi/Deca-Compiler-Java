@@ -1,0 +1,13 @@
+//Teste l'accès à la variable x d'une instance de A à travers un objet B, affichant la valeur 5.
+class A {
+    int x = 5;
+}
+class B{
+    A a;
+}
+
+{
+    B b = new B();
+    b.a = new A();
+    println(b.a.x);
+}

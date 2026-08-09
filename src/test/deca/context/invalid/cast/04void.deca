@@ -1,0 +1,12 @@
+// Verifie qu'une fonction qui renvoie void ne peux pas être converti en classe
+
+
+class A{
+    void i(){
+        int i = 5;
+    }
+}
+{
+    A a = new A();
+    A a = (A) (a.i());
+}

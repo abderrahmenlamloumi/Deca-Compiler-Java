@@ -1,0 +1,8 @@
+//Teste l'affichage de la valeur de x dans la classe Holder, qui est 5.
+class Holder {
+    int x = 5;
+
+}
+{
+     println(new Holder().x);
+}

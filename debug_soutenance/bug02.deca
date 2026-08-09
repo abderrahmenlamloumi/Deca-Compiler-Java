@@ -1,0 +1,41 @@
+// codegen/valid
+
+class A {
+  protected int x = 42 ;
+  
+  void test(int a) {
+    if (x == a) {
+      println("OK: ", a);
+    } else {
+      println("KO: ", x, " vs ", a);
+    }
+  }
+  
+}
+
+class B extends A {
+   void foo(C c) {
+      this.x = 1 ; 
+      c.x = 2 ;
+   }
+}
+
+class C extends B {
+
+  C init () {
+    x = x+1;
+    return this;
+  }
+  
+}
+
+{
+  B b = new B();
+  C c = new C().init();
+  b.test(42);
+  c.test(43);
+  b.foo(c);
+  b.test(1);
+  c.test(2);
+}
+      

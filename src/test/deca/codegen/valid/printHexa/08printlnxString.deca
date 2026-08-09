@@ -1,0 +1,4 @@
+//test du printlnx d'un string literal
+{
+    printlnx("Hello world!");
+}

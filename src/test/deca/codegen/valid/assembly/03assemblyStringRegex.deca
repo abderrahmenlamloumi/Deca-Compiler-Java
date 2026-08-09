@@ -1,0 +1,19 @@
+//Teste l'affichage en ASM avec backSlash() qui affiche \ et quotes() qui affiche " (guillemets), en vérifiant que les caractères spéciaux sont correctement échappés via des expressions régulières (regex).
+class Asm {
+    void backSlash() asm("
+        WSTR \"\\\"
+        WNL
+        RTS
+    ");
+
+    void quotes() asm("
+        WSTR \"\"\"\"
+        WNL
+        RTS
+    ");
+}
+
+{
+    new Asm().backSlash(); // Affiche \
+    new Asm().quotes(); // Affiche "
+}

@@ -1,0 +1,16 @@
+//Teste les conversions de null avec des casts vers Number et Integer, affichant respectivement "still null", "still very null", et "still very very null".
+class Number {}
+class Integer extends Number {}
+
+{
+    Number n = null;
+    if (((Number) (null)) == null) {
+        println("still null");
+    }
+    if (((Number) (n)) == null) {
+        println("still very null");
+    }
+    if (((Integer) (n)) == null) {
+        println("still very very null");
+    }
+}

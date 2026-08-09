@@ -1,0 +1,13 @@
+//test du not unaire avec l'operateur lesser
+{
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    if (!(a < b)) { println("true"); } else { println("false"); }
+    if (!(b < b)) { println("true"); } else { println("false"); }
+    if (!(c < b)) { println("true"); } else { println("false"); }
+
+    if (!(a <= b)) { println("true"); } else { println("false"); }
+    if (!(b <= b)) { println("true"); } else { println("false"); }
+    if (!(c <= b)) { println("true"); } else { println("false"); }
+}

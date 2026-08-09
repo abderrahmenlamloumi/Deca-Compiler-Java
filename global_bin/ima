@@ -1,0 +1,26 @@
+#!/bin/bash
+
+function ctrl_c() {
+    stty $stty_orig
+}
+
+# A little faster than dirname
+DIR=${0%/*}
+ARCH="$(uname -m | sed 's/i.86/iX86/')-$(uname -s)"
+
+if [ ! -x "$DIR"/ima-"$ARCH" ]; then
+    echo "ERROR: could not execute ima for your platform ($ARCH), sorry."
+    echo "Try recompiling ima from the sources/ directory."
+    exit 1
+fi
+
+if test "x$1" == "x--echo-off" ; then
+    shift
+    stty_orig=`stty -g` || exit 1
+    trap ctrl_c INT
+    stty -echo
+    "$DIR"/ima-"$ARCH" "$@"
+    stty $stty_orig
+else
+    exec "$DIR"/ima-"$ARCH" "$@"
+fi

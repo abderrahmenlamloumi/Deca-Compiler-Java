@@ -1,0 +1,4 @@
+//test du printx avec un decimal
+{
+    printx(25.0);
+}

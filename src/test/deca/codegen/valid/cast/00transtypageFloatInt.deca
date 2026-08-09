@@ -1,0 +1,6 @@
+//Teste la conversion d'un float en int en transformant 3.14 en 3 et affiche le résultat avec println().
+{
+    float a = 3.14;
+    int b = (int) (a);
+    println(b);
+}

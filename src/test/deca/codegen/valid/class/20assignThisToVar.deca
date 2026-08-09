@@ -1,0 +1,9 @@
+// Teste l'utilisation du mot-clé this pour référencer l'instance actuelle de la classe à travers un champ self, permettant l'accès à une variable membre en utilisant plusieurs niveaux de référence.
+class A {
+    A self = this;
+    int b = 10;
+}
+{
+    A a = new A();
+    print(a.self.self.self.b);
+}

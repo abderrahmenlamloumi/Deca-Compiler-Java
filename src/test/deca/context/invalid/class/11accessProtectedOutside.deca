@@ -1,0 +1,15 @@
+// Verifie qu'un attribut protected ne puisse pas être lu en dehors de la classe
+
+class Banque {
+    protected int coffre = 9;
+}
+class Ensimag {
+    int BDA() {
+       Banque Nathan = new Banque();
+       return Nathan.coffre;
+    }
+}
+{
+    Ensimag MeilleurPromo2027 = new Ensimag();
+    println(MeilleurPromo2027.BDA());
+}

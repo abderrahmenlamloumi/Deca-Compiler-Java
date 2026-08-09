@@ -1,0 +1,8 @@
+// Vérifie qu'un attribut protected n'est pas accessible depuis main
+
+class A {
+    protected int x = 5;
+}
+{
+    print(new A().x);
+}

@@ -1,0 +1,4 @@
+// Hoisting pas possible (héritage d'une classe déclarée après dans le code)
+
+class B extends A {}
+class A {}

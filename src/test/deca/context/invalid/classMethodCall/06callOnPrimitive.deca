@@ -1,0 +1,5 @@
+// Vérifie qu'on ne puisse pas appeler une méthode sur un primitif
+
+{
+    5.foo();
+}

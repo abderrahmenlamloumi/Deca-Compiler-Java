@@ -1,0 +1,73 @@
+import SandBox from "../../../src/components/SandBox";
+
+# Variables
+
+<SandBox precode='
+{
+    int a;
+    float b = 2.1;
+    a = 2;
+    println(a);
+    println(b);
+    a = 4;
+    println(a);
+}
+' />
+
+## Déclaration de variable
+
+Les variables permettent de stocker une information et de la modifier ultérieurement.
+
+Les variables **doivent** être déclarées avant de pouvoir être utilisées.
+Dans le cas contraire une erreur est levé à la compilation.
+
+Une variable peut être déclarée sans être initialisée, tout comme elle peut être initialisée.
+
+```txt title="Syntaxte de déclaration de variable"
+type name [= valeur]
+```
+
+**Types disponibles**
+- int
+- float
+- boolean
+- classes
+- string
+
+**Le nom**
+
+Le nom peut être une suite de caractère et de chiffres ainsi que les caractères spéciaux suivants : _ $
+Le nom ne PEUT PAS commencer par un caractère numérique.
+
+**Valeur**
+
+La valeur est optionnelle, elle permet d'initialiser la variable, la valeur doit être du même type que le type de la variable.
+
+:::note
+Le compilateur supporte le fait d'initialiser une variable float avec un entier (int) et réalise la conversion à la compilation.
+:::
+---
+
+
+**Erreurs possibles**
+
+> [Variable X is already declared](/docs/references/errors/compilation#variable-x-is-already-declared)
+
+---
+
+## Modification des variables
+
+Une variable peut être modifiée dans l'exécution du code, si elle est dans la portée du code via la syntaxe suivante :
+
+```
+int a;
+a = 2;
+a = 3;
+```
+
+
+**Erreurs possibles**
+
+> [Incompatible types for assignment: expected X, got Y](/docs/references/errors/compilation#incompatible-types-for-assignment-expected-x-got-y)
+>
+> [Field X is already declared](/docs/references/errors/compilation#field-x-is-already-declared)

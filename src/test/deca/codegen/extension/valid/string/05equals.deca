@@ -1,0 +1,18 @@
+//test de la fonction .equals sur les strings
+{
+    if ("Hello, world!".equals("Hello, world!")) {
+        println("ok");
+    } else {
+        println("ko");
+    }
+    if ("Very long".equals("short")) {
+        println("ko");
+    } else {
+        println("ok");
+    }
+    if ("abcde".equals("abcdE")) {
+        println("ko");
+    } else {
+        println("ok");
+    }
+}

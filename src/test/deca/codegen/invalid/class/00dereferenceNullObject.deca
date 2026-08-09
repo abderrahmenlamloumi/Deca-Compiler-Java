@@ -1,0 +1,8 @@
+//test de deferencement d'une variable contenant une classe
+class A {
+    int foo = 1;
+}
+{
+    A a = null;
+    println(a.foo);
+}

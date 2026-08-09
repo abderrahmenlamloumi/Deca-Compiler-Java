@@ -1,0 +1,10 @@
+//test d'une methode n'ayant pas de return
+class A {
+    A a;
+    int hello(){
+    }
+}
+{
+    A a = new A();
+    a.hello();
+}

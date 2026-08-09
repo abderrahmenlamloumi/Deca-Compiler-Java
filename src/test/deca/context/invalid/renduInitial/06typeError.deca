@@ -1,0 +1,6 @@
+// Assign a float to an int variable
+{
+	int x ;
+	x=1.2 ;
+	println(x);
+}

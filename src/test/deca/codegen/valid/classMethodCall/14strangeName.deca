@@ -1,0 +1,19 @@
+//Teste la validité et l’utilisation de noms d’identifiants contenant des caractères spéciaux autorisés ($ et _), pour vérifier que le langage accepte ces noms et les distingue correctement.
+class Foo$ {
+    int _a() {
+        return 42;
+    }
+
+    float a_() {
+        return 3.14f;
+    }
+
+    int a$() {
+        return 24;
+    }
+}
+
+{
+    Foo$ foo = new Foo$();
+    println(foo._a(), " ", foo.a_(), " ", foo.a$());
+}

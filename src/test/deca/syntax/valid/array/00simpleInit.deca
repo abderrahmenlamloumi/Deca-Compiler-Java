@@ -1,0 +1,5 @@
+// Instanciation d'un tableau
+
+{
+    int[] a = new int[5];
+}

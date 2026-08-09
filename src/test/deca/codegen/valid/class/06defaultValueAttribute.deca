@@ -1,0 +1,17 @@
+//Teste l'affichage des valeurs par défaut (0.0 pour float, false pour boolean, 0 pour int) des variables d'une instance de la classe A.
+class A {
+    int x ;
+    boolean y;
+    float z;
+}
+
+{
+    A a = new A();
+    println(a.z);
+    if (a.y) {
+        println("true");
+    } else {
+        println("false");
+    }
+    println(a.x);
+}

@@ -1,0 +1,17 @@
+// Verify that a null check is done after evaluating the arguments
+// https://docs.oracle.com/javase/specs/jls/se21/html/jls-15.html#jls-15.12.4.4
+class SideEffect {
+    void doSomething(int arg) {
+        println("Doing something with ", arg);
+    }
+
+    int eval() {
+        println("Evaluating argument");
+        return 42;
+    }
+}
+
+{
+    SideEffect test = null;
+    test.doSomething(new SideEffect().eval());
+}

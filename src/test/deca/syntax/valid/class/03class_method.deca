@@ -1,0 +1,10 @@
+// Déclaration d'une classe avec des méthodes et des attributs
+
+class A {
+    int x;
+
+    int foo(int a, int b){
+        int c;
+        return a + b - c;
+    }
+}

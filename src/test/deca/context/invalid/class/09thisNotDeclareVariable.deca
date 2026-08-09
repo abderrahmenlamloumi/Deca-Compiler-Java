@@ -1,0 +1,7 @@
+// Verifie que this + attribut qui n'existe pas déclenche une erreur
+
+class A {
+    boolean a = true;
+    int b = this.c;
+}
+{}

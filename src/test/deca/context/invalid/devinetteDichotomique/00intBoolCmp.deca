@@ -1,0 +1,5 @@
+// Vérifie que les opérande de l'opérateur == ne puisse pas être et un entier et un boolean
+
+{
+    if (true == 1) {}
+}

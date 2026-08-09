@@ -1,0 +1,4 @@
+
+#include "02libraryB.decah"
+print(0);
+

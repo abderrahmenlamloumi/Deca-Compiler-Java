@@ -1,0 +1,6 @@
+// codegen/valid
+{
+  println("Les deux lignes ci-dessous doivent afficher la même chose (sous Linux)");
+  println("saute mouton");
+  println("      moutonsaute");
+}

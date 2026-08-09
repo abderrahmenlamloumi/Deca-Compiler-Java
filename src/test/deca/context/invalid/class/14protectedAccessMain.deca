@@ -1,0 +1,13 @@
+// Verifie qu'une sous classe puisse accéder à un attribut protected mais pas dans le main
+
+class A {
+    protected int x = 1;
+    int y = x;
+}
+class B extends A {
+    int y =x;
+}
+{
+    A a = new A();
+    print(a.x);
+}

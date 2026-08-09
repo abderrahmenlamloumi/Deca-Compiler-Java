@@ -1,0 +1,12 @@
+// Teste l'utilisation du mot-clé this dans une méthode pour se référer à l'instance actuelle de la classe, sans effet visible dans ce cas.
+class A {
+    int a = 8;
+    void foo()
+    {
+        this;
+    }
+}
+{
+    A w = new A();
+    w.foo();
+}

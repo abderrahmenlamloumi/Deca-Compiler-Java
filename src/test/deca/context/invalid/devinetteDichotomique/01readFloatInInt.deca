@@ -1,0 +1,4 @@
+// Verifie qu'un readFloat ne puisse pas être stoqué dans un entier
+{
+    int int = readFloat();
+}

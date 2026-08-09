@@ -1,0 +1,13 @@
+{
+    boolean condition;
+    if (4 <= 5) { println("true"); } else { println("false"); }
+    if (5 <= 5) { println("true"); } else { println("false"); }
+    if (6 <= 5) { println("true"); } else { println("false"); }
+
+    condition = 5 <= 4;
+    if (condition) { println("true"); } else { println("false"); }
+    condition = 5 <= 5;
+    if (condition) { println("true"); } else { println("false"); }
+    condition = 5 <= 6;
+    if (condition) { println("true"); } else { println("false"); }
+}

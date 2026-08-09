@@ -1,0 +1,13 @@
+//Teste la sensibilité à la casse des noms de variables (i et I) dans différentes classes, et vérifie que les bonnes valeurs sont associées à chaque champ selon leur déclaration.
+class a {
+    int i = 42;
+    int I = 100;
+}
+class A {
+    int I = 24;
+    int i = 200;
+}
+
+{
+    println(new a().i, " ", new A().I, " ", new A().i, " ", new a().I);
+}

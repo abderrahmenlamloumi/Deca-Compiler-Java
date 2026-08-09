@@ -1,0 +1,32 @@
+class A {
+    int x ;
+    boolean y;
+    float z;
+}
+
+{
+    A a = new A();
+    println(a.z);
+    println(a.x);
+    //TODO in 06deafaultValueAttribute
+    //TO ADD test for BOOL
+}
+
+class A{
+void foo(){}
+}
+
+{
+    A a = new A();
+    a.foo
+}
+
+//for extends
+class A{
+    int x;
+}
+
+
+class B extends A{
+    int x();;
+}

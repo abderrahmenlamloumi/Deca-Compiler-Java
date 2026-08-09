@@ -1,0 +1,2 @@
+// Try to declare a class extending a string (non class)
+class Test extends string {}

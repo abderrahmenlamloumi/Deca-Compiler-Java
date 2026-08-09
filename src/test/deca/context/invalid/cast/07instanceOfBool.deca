@@ -1,0 +1,5 @@
+// vérifie que l'expression gauche de l'opérateur doit être une instance de classe
+
+{
+    true instanceof Object;
+}

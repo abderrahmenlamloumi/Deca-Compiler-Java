@@ -1,0 +1,7 @@
+//test des prints de string via variables
+{
+    string hello = "Hello dynamic strings!";
+    println(hello);
+    println("a classic string in between");
+    println(hello);
+}

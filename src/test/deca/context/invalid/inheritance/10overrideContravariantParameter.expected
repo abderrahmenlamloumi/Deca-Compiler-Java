@@ -1,0 +1,1 @@
+10overrideContravariantParameter.deca:11:9: Method play is overridden using a Cube r parameter, while expecting type RubiksCube

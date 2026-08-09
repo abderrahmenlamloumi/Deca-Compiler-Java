@@ -1,0 +1,12 @@
+//Teste l'initialisation d'un champ a dans la classe A, qui est null par défaut, affichant donc "ok".
+class A {
+    A a;
+}
+
+{
+    if (new A().a == null) {
+        println("ok");
+    } else {
+        println("ko");
+    }
+}

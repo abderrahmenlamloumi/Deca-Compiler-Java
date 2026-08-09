@@ -1,0 +1,18 @@
+// Verify that callee-saved registers are effectively saved, and that variables doesn't interfere with the save.
+class Foo {
+    void foo(float f) {
+        println(bar(f) + bar(f) + bar(f));
+    }
+
+    int bar(float x) {
+        int foo = 5;
+        int bar = 6;
+        println(x);
+        return 12 + (bar + foo);
+    }
+}
+
+{
+    Foo foo = new Foo();
+    foo.foo(4.0);
+}

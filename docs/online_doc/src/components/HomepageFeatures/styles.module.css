@@ -1,0 +1,12 @@
+.features {
+  display: flex;
+  align-items: center;
+  gap: 4em;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.row {
+  gap: 4em;
+  textAlign: center;
+}

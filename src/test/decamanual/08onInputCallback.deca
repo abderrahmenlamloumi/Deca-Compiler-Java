@@ -1,0 +1,72 @@
+//test utile lors des tests manuels pour l'extension entree utilisateur
+#include "UserIO.decah"
+
+
+class UserIOCallback extends UserIO {
+
+    void onKeyInput(int key){
+    }
+
+    void onRPressed(){
+        this.eraseFullScreen();
+        getScreenSize();
+        setScreenSize(screenSize.x);
+        this.cursorHome();
+    }
+
+    void onMouseEvent(MouseEvent me){
+        if (me.isPressed) {
+            this.setCursorAt(me.x, me.y);
+            print("X");
+            this.cursorHome();
+            this.eraseLine();
+        }
+
+    }
+
+    void onXPressed(){
+        setRedBackground();
+        print("                                           ");
+        setBlackBackground();
+        print("                                           ");
+        setRedBackground();
+        print("                                           ");
+        setBlackBackground();
+        print("                                           ");
+        setRedBackground();
+        print("                                           ");
+        setBlackBackground();
+        print("                                           ");
+        resetStyle();
+    }
+
+
+
+    void onArrowUp(){
+        println("UP");
+    }
+
+    void onArrowDown(){
+        println("DOWN");
+    }
+
+    void onArrowLeft(){
+        println("LEFT");
+    }
+
+    void onArrowRight(){
+        println("RIGHT");
+    }
+
+}
+{
+    UserIO u = new UserIOCallback();
+    Coordinates s = u.getScreenSize();
+
+    u.setScreenSize(s.x);
+    u.cursorHome();
+    u.enableMouseInput();
+    u.callbackOnInputExitable(113);
+    println("Exit program");
+
+}

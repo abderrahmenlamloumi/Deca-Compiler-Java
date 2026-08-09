@@ -1,0 +1,4 @@
+// Vérifie qu'on ne puisse pas assigner null à un type primitif
+{
+    int a = null;
+}

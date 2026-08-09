@@ -1,0 +1,47 @@
+import SandBox from "../../../src/components/SandBox";
+
+# Conditions
+
+## If Else if Else
+
+<SandBox precode='
+{
+    int a = 2, b = 3;
+    if (a > b && true) {
+        println("A (", a,") est plus grand que B (", b,")");
+    } else {
+        println("A (", a,") est plus petit ou égale à B (", b,")");
+    }
+}
+
+' />
+
+---
+
+Les conditions permettent d'exécuter du code en fonction de valeur de variables.
+
+```txt title="Syntaxe"
+if (expr) {
+    code si vrai
+} else if (expr) {
+    code si seconde condition vrai
+}
+else {
+    code si faux
+}
+```
+
+
+
+
+**Erreurs possibles**
+
+> [Condition must be of type boolean](/docs/references/errors/compilation#condition-must-be-of-type-boolean)
+>
+> [Cannot compare operands of different types](/docs/references/errors/compilation#cannot-compare-operands-of-different-types)
+>
+> [Compared operands aren't supported](/docs/references/errors/compilation#compared-operands-arent-supported)
+>
+> [Operands compared should be float or int](/docs/references/errors/compilation#operands-compared-should-be-float-or-int)
+>
+> [All Operands should be boolean](/docs/references/errors/compilation#all-operands-should-be-boolean)

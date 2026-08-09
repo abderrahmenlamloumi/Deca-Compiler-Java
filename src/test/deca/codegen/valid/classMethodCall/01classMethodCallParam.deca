@@ -1,0 +1,12 @@
+//Teste l’appel d’une méthode avec un paramètre ayant le même nom qu’un attribut de la classe, pour vérifier la résolution correcte des noms et l’affichage de la valeur transmise en argument.
+class A {
+    A a;
+    void hello(int a){
+        println("Hello ", a);
+    }
+}
+{
+    int b = 66;
+    A a = new A();
+    a.hello(b);
+}

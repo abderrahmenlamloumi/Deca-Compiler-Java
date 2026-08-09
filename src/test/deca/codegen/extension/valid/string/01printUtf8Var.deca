@@ -1,0 +1,8 @@
+//test du print des caractères utf8 
+{
+    string foo = "Ensimag ProjetGL Équipe GL10";
+    if (true) {
+        foo = "Un crabe et des caractères accentués 🦀";
+    }
+    println(foo);
+}

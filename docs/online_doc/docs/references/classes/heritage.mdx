@@ -1,0 +1,116 @@
+---
+sidebar_position: 3
+---
+
+import SandBox from "../../../src/components/SandBox";
+
+
+# Héritage
+
+
+<SandBox precode='
+
+class Bar {
+    int a = 5;
+}
+class Foo extends Bar {
+    int x = 5;
+}
+{
+    Foo A = new Foo();
+    println(A.x);
+    println(A.a);
+}
+' />
+
+---
+
+L'héritage permet à une classe d'avoir accès aux attributs et aux méthodes d'une autre classe.
+
+Pour cela, il faut étendre la classe au moment de sa déclaration en utilisant le mot clé `extends`.
+
+```txt title="Exemple"
+class Foo {}
+class Bar extends Foo {}
+```
+
+**Erreurs possibles**
+
+> [Superclass X is not a class](/docs/references/errors/compilation#superclass-x-is-not-a-class)
+>
+> [Field X cannot shadow a Y in the superclass](/docs/references/errors/compilation#field-x-cannot-shadow-a-y-in-the-superclass)
+
+## Attributs et Protected
+
+Une classe enfant ne peut pas avoir des attributs propres qui ont le même nom que des attributs de la classe parente.
+De plus lors de l'instanciation des attributs l'utilisateur peut spécifier la visibilité de ceux-ci.
+
+Il a donc le choix entre ne rien mettre, ce qui signifie une visibilité publique implicite, ou de rajouter le mot clé `protected`.
+Le mot clé `protected` empêche l'accès des attributs en dehors de la classe.
+Les classes enfants qui héritent des attributs `protected` de leurs parents, auront accès à ces attributs.
+
+```txt title="Exemple"
+class Parent {
+    protected int x = 7;
+}
+
+class Enfant extends Parent {
+    int y = x;
+}
+{
+    println(new Enfant().y);
+}
+```
+
+
+## Redéfinition (Override)
+
+Une classe enfant peut redéfinir une méthode déjà déclarée dans la classe parente pour redéfinir son comportement.
+Le nom de la méthode et les types des paramètres et de retour doivent être identiques.
+
+Seul le type de retour peut être un type plus spécifique que celui de la méthode parente.
+Dans ce cas, appelé retour covariant, le type de retour de la méthode enfant doit être un sous-type du type de retour de la méthode parente.
+
+```txt title="Exemple"
+class Parent {
+    int bar() {
+        print(1);
+    }
+
+    int foo(int a) {
+        print(a);
+    }
+}
+
+class Enfant extends Parent {
+    int foo(int a) {
+        print(a + 1);
+    }
+}
+{
+    Enfant e = new Enfant();
+    print(enfant.bar()); // 1;
+    print(enfant.foo(2)); // 3;
+}
+```
+
+
+## Opérateur InstanceOf
+
+L'opérateur `instanceof` permet de vérifier si le type effectivement instancié d'un objet est, ou est fils de, une classe donnée.
+
+
+
+**Erreurs possibles**
+
+> [Method X is overridden with different number of parameters](/docs/references/errors/compilation#method-x-is-overridden-with-different-number-of-parameters)
+>
+> [Method X is overridden with a different return type](/docs/references/errors/compilation#method-x-is-overridden-with-a-different-return-type)
+>
+> [Method X is overridden using a Y parameter, while expecting type Z](/docs/references/errors/compilation#method-x-is-overridden-using-a-y-parameter-while-expecting-type-z)
+>
+> [Protected field cannot be accessed outside of its class](/docs/references/errors/compilation#protected-field-cannot-be-accessed-outside-of-its-class)
+>
+> [Left operand of the instanceof needs to be an object](/docs/references/errors/compilation#left-operand-of-the-instanceof-needs-to-be-an-object)
+>
+> [Right operand of the instance of needs to be a class](/docs/references/errors/compilation#right-operand-of-the-instance-of-needs-to-be-a-class)

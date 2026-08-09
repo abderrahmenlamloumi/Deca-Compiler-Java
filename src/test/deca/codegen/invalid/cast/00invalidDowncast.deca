@@ -1,0 +1,16 @@
+//test du downcast d'une classe enfant
+class A{
+
+}
+
+class B extends A{
+
+}
+class C extends A{
+
+}
+
+{
+    A a = new A();
+    B b = (B) (a);
+}

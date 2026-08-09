@@ -1,0 +1,12 @@
+// Vérifie que le return du nom de la méthode déclenche une erreur
+
+class A{
+    int foo(){
+        return foo;
+    }
+}
+{
+    A a = new A();
+    int b = 5;
+    b = a.foo();
+}

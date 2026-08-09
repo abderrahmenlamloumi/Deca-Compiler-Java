@@ -1,0 +1,426 @@
+// Grenoble INP - Ensimag projet GL -*- mode: java -*-
+// Library for class Math of Deca, coded in Deca
+
+
+class Math {
+
+    float pi = 3.1415927;
+    float two_pi = 2 * this.pi;
+    float MIN_FLOAT = this.pow(2, -149);
+
+    /**
+     * Approximates the sine of angle f (in radians).
+     * Uses a Taylor series expansion.
+     *
+     * @param f angle in radians
+     * @return approximate sine of f
+     */
+    float sin(float f) {
+        int i = 0;
+        float ulp;
+        float x = 1;
+        float fac = 1;
+        float pow = 1;
+        float res = 0;
+        float sign = -1;
+        f = this.normalize(f);
+        if (f < 0) {
+            f = -f;
+            if (f > this.pi / 2) {
+                f = f - this.pi / 2;
+                return -this.cos(f);
+            }
+            return -this.sin(f);
+        }
+        if (f > this.pi / 2) {
+            f = f - this.pi / 2;
+            return this.cos(f);
+        }
+        ulp = this.ulp(f);
+        while (this.abs(x) > ulp) {
+            pow = pow * f * f;
+            if (i == 0) {pow = 1;}
+            fac = fac * (2 * i - 1) * (2 * i);
+            if (i == 0) {fac = 1;}
+            if (i == 1) {fac = 2;}
+            sign = sign * -1;
+            x = sign * (pow * f) / (fac * (2 * i + 1));
+            res = res + x;
+            i = i + 1;
+        }
+        return res;
+    }
+
+    /**
+     * Approximates the cosine of angle f (in radians).
+     * Uses a Taylor series expansion.
+     *
+     * @param f angle in radians
+     * @return approximate cosine of f
+     */
+    float cos(float f) {
+        float ulp;
+        float res = 0;
+        float x = 1;
+        int i = 0;
+        float fact = 1;
+        float pow = 1;
+        float sign = -1;
+        float p = this.abs(this.normalize(f));
+        if (f > this.pi / 2) {
+            f = f - this.pi / 2;
+            return -this.sin(f);
+        }
+        ulp = this.ulp(f);
+        while (this.abs(x) > ulp) {
+            pow = pow * f * f;
+            if (i == 0) {pow = 1;}
+            fact = fact * (2 * i - 1) * (2 * i);
+            if (i == 0) {fact = 1;}
+            if (i == 1) {fact = 2;}
+            sign = sign * -1;
+            x = sign * (pow / fact);
+            res = res + x;
+            i = i + 1;
+        }
+        if (f > 0 && res < 0) {
+            res = -res;
+        }
+        return res;
+    }
+
+    /**
+     * Approximates the tangent of angle f (in radians).
+     *
+     * @param f angle in radians
+     * @return approximate cosine of f
+     */
+
+    float tan(float f){
+        return this.sin(f)/this.cos(f);
+    }
+
+   /**
+     * Approximates arcsin(f) using a Taylor series.
+     * Valid only for f in [-1, 1].
+     *
+     * @param f input value
+     * @return approximate arcsin(f) in radians
+     */
+    float asin(float f) {
+        float res = 0;
+        float x = 1;
+        float ulp = this.ulp(f);
+        int i = 0;
+        float pow = 1;
+        float pow2 = 1;
+        float fac = 1;
+        float facn = 1;
+
+        assert (!(-1 > f || f > 1), "Valid only for f in [-1, 1]");
+
+        if (f == -1) {return -this.pi / 2;}
+        if (f == 1) {return this.pi / 2;}
+        if (this.abs(f) > 1) {return 0;}
+        assert (!((f < -1) || (f > 1)));
+        while (this.abs(x) > ulp) {
+            pow = pow * f * f;
+            if (i == 0) {pow = 1;}
+            fac = fac * (2 * i) * (2 * i - 1);
+            if (i == 0) {fac = 1;}
+            if (i == 1) {fac = 2;}
+            facn = facn * i;
+            if (i == 0) {facn = 1;}
+            i = i + 1;
+            pow2 = pow2 * 2 * 2;
+            x = (fac / (facn * facn * pow2)) * (pow * f) / (2 * i + 1);
+            res = res + x;
+        }
+        return res;
+    }
+
+    /**
+     * Approximates arctangent(f) using a Taylor series.
+     * Uses identity for |f| > 1.
+     *
+     * @param f input value
+     * @return approximate arctangent(f) in radians
+     */
+    float atan(float f) {
+        float res = 0;
+        float sign = -1;
+        float x = 1;
+        float ulp;
+        float pow = 1;
+        int i = 0;
+        float y = 0;
+        float f_abs;
+
+        if (f == -1) {
+            return -this.pi / 4;
+        }
+        if (f == 1) {
+            return this.pi / 4;
+        }
+        if(f < 0){
+            f_abs = this.abs(f);
+            y = -this.atan(f_abs);
+            return y;
+        }
+        if (this.abs(f) > 1) {
+            return this.pi / 2 - this.atan(1 / f);
+        }
+
+        ulp = this.ulp(f);
+        while (this.abs(x) > ulp) {
+            pow = pow * f * f;
+            if(i == 0){pow = 1;}
+
+            sign = sign * -1;
+            x = sign * (pow * f) / (2 * i + 1);
+
+            res = res + x;
+            i = i + 1;
+        }
+        return res;
+    }
+
+
+    /**
+     * Returns the ULP (Unit in the Last Place) of a float value.
+     * That is, the distance between the given float and the next closest float value.
+     *
+     * @param f the float value
+     * @return the ULP of f
+     */
+    float ulp(float f) {
+        float e;
+        if (f == 0.0) {return this.MIN_FLOAT;}
+        e = this.exp32bits(f);
+        if (e<-126){
+            return this.MIN_FLOAT;
+        }
+        return this.pow(2, e - 23);
+    }
+
+    /**
+     * Converts radians to degrees.
+     *
+     * @param rad angle in radians
+     * @return angle in degrees
+     */
+    float toDegrees(float rad) {
+        return rad * (180.0 / this.pi);
+    }
+
+    /**
+    * Evaluates the natural logarithm of  a
+    * @param float a
+    * @return
+    */
+
+
+    float ln(float a) {
+        float x;
+        float res;
+        float term;
+        float x2;
+        int n;
+        float ulp;
+
+        assert(a > 0.0);
+
+        x = (a - 1) / (a + 1);
+        res = 0;
+        term = x;
+        x2 = x * x;
+        n = 1;
+
+        ulp = this.ulp(a);
+        while (this.abs(term) > ulp) {
+            res = res + term / n;
+            term = term * x2;
+            n = n + 2;
+        }
+
+        return 2 * res;
+    }
+
+    /**
+    * Evaluates the exponential of  a
+    * @param float a
+    * @return
+    */
+    float exp(float x) {
+        float term = 1.0;
+        float res = 1.0;
+        int n = 1;
+        float ulp = this.ulp(x);
+        while (this.abs(term) > ulp) {
+            term = term * x / n;
+            res = res + term;
+            n = n + 1;
+        }
+
+        return res;
+    }
+
+    /**
+     * Computes a raised to the power b.
+     *
+     * @param a base
+     * @param b exponent
+     * @return a^b
+     */
+    float pow(float a, float b) {
+        float res = 1;
+        int i;
+        if (b == 0) {
+            return 1;
+        }
+        if (b < 0) {
+            while (b < 0) {
+                res = res / a;
+                b = b + 1;
+            }
+            return res;
+        }
+        while (b > 0) {
+            res = res * a;
+            b = b - 1;
+        }
+        return res;
+    }
+
+    /**
+     * Returns absolute value of a.
+     *
+     * @param a input
+     * @return |a|
+     */
+    float abs(float a) {
+        if (a < 0.0) {return -a;}
+        return a;
+    }
+
+    /**
+     * Calculate the square root.
+     *
+     * @param f input
+     * @return sqrt(f)
+     */
+    float sqrt(float f) {
+        float x;
+        float y;
+        int n = 0;
+
+        if (f <= 0.0) {
+            return 0.0;
+        }
+        x = f / 2.0;
+        while (n < 100) {
+            y = (x + f / x) / 2.0;
+            x = y;
+            n = n + 1;
+        }
+        return x;
+    }
+
+    /**
+     * Approximates the base-2 exponent of a float.
+     *
+     * @param f input float
+     * @return exponent such that f ≈ m * 2^e
+     */
+    float exp32bits(float f) {
+        float e = 0;
+        float f_abs = this.abs(f);
+        if (f_abs == 0.0) {return 0;}
+        while (f_abs < 1) {
+            f_abs = f_abs * 2;
+            e = e - 1;
+        }
+        while (f_abs >= 2) {
+            f_abs = f_abs / 2;
+            e = e + 1;
+        }
+        return e;
+    }
+
+    /**
+     * Floor operation for floats (largest int ≤ a).
+     *
+     * @param a input float
+     * @return floor of a
+     */
+    float floor(float a) {
+        float result = 0.0;
+        float x;
+        if (a >= 0.0) {
+            x = result + 1.0;
+            while (x <= a) {
+                result = x;
+                x = x + 1;
+            }
+        } else {
+            x = result - 1.0;
+            while (result - 1.0 > a) {
+                result = x;
+                x = x - 1;
+            }
+            result = result - 1.0;
+        }
+        return result;
+    }
+
+    float round(float a){
+        return floor(a + 0.5);
+    }
+
+    /**
+     * evaluate ceil and return
+     *
+     * @param a input float
+     * @return ceil of a
+     */
+    float ceil(float a) {
+        float f = floor(a);
+        if (f == a) {
+            return f;
+        } else {
+            return f + 1;
+        }
+    }
+
+
+    /**
+     * Normalizes angle f into range [-π, π].
+     *
+     * @param f input angle in radians
+     * @return angle in [-π, π]
+     */
+    float normalize(float f) {
+        float floor;
+        if (f > this.pi || f <= -this.pi) {
+            floor = this.floor((f + this.pi) / this.two_pi);
+            f = f - this.two_pi * floor;
+        }
+        return f;
+    }
+
+    /**
+     * Recursive factorial.
+     *
+     * @param n integer >= 0
+     * @return n!
+     */
+    int fact(int n) {
+        if (n <= 1) {return 1;}
+        return n * fact(n - 1);
+    }
+
+
+}
+
+
+// End of Deca Math library

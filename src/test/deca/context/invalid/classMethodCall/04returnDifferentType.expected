@@ -1,0 +1,1 @@
+04returnDifferentType.deca:5:15: Incompatible types for return: expected int, got float

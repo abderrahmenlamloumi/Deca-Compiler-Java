@@ -1,0 +1,5 @@
+// Vérifie qu'on ne puisse pas additionner deux strings
+
+{
+    println("a" + "b");
+}

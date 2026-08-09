@@ -1,0 +1,11 @@
+//Teste l’appel d’une méthode d’instance (hello) sur un objet nouvellement créé, pour vérifier le bon fonctionnement de la déclaration de méthode.
+class A {
+    A a;
+    void hello(){
+        println("Hello Wold!");
+    }
+}
+{
+    A a = new A();
+    a.hello();
+}

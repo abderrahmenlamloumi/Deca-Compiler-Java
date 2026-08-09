@@ -1,0 +1,7 @@
+// Vérifie qu'une return dans une méthode qui n'en attend pas déclenche une erreur
+
+class Foo {
+    void bar() {
+        return new Foo().bar();
+    }
+}

@@ -1,0 +1,12 @@
+//test de l'allocation memoire pour les methodes en limitant la taille de la pile
+// runtime-options: -p 10
+class Foo {
+    int sum() {
+        int a = 1, b = 2, c = 3, d = 4;
+        return a + b + c + d;
+    }
+}
+
+{
+    new Foo().sum();
+}

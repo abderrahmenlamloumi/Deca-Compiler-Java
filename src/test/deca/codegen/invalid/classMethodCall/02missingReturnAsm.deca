@@ -1,0 +1,8 @@
+//test d'une methode avec retour void, mais instruction asm sans return
+class Test {
+    void foo() asm("");
+}
+
+{
+    new Test().foo();
+}

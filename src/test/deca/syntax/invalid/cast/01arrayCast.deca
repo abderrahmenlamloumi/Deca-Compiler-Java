@@ -1,0 +1,6 @@
+// Cast d'un tableau (censé être impossible)
+
+{
+    int[] arr = new int[5];
+    println(((float[]) (arr))[0]);
+}

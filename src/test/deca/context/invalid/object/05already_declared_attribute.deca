@@ -1,0 +1,10 @@
+// Impossible de déclarer 2 fois le même attribut
+
+class Holder {
+    int x = 1;
+    float y = 2;
+    int x = 3;
+}
+{
+
+}

@@ -1,0 +1,6 @@
+//test concatenation string, dont une null
+{
+    string a = null;
+    string b = "";
+    println(a + b);
+}

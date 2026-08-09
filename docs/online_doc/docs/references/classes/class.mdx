@@ -1,0 +1,211 @@
+---
+sidebar_position: 1
+---
+
+import SandBox from "../../../src/components/SandBox";
+
+
+# Classes
+
+
+<SandBox precode='
+class Foo {
+    int x = 5;
+}
+{
+    Foo A = new Foo();
+    println(A.x);
+    println(new Foo().x);
+}
+' />
+
+## Déclaration des classes
+
+Les classes se déclarent via la syntaxe suivante :
+```txt
+class Foo {
+    // attributs et méthodes de la classe
+}
+{
+    // main ...
+}
+```
+
+Les classes doivent être déclarées avant le corps `main` du programme.
+
+Une classe est composée d'attributs et de méthodes.
+
+**Erreurs possibles**
+
+> [Field cannot have type void](/docs/references/errors/compilation#field-cannot-have-type-void)
+>
+> [Field X is already declared](/docs/references/errors/compilation#field-x-is-already-declared)
+>
+> [Class already exist](/docs/references/errors/compilation#class-already-exist)
+
+## Instanciation
+
+Pour créer une nouvelle instance d'une classe et la stocker dans une variable, il faut déclarer la variable avec le type correspondant à la classe, où une classe parente.\
+Et l'initialiser en appelant la classe précédée du mot clé `new`.
+
+À l'instantiation d'une classe, les attributs sont initialisés avec leur expression [voir valeur par défaut](/docs/references/classes/class#valeur-par-défaut).
+
+```txt title="Exemple"
+class Foo {
+    Foo a = new Foo();
+}
+```
+
+**Erreurs possibles**
+
+> [X does not refer to a value/type.](/docs/references/errors/compilation#x-does-not-refer-to-a-valuetype)
+
+## Attributs
+
+Les attributs sont déclaré sous la syntaxe suivante :
+
+```txt
+[protected] {type} ({name} [ = {value}])*
+```
+
+Un attribut est publique par défaut. Il est donc lisible et écrivable librement par tout code ayant accès à la classe.
+
+Pour les attributs `protected` voir [Héritage#protected](/docs/references/classes/heritage#attributs-et-protected).
+
+Pour lire un attribut, il faut écrire l'identifiant de l'instance de la classe puis le nom de l'attribut séparé par un point `.`
+
+```txt title="Exemple"
+class A {
+    int foo = 2;
+}
+A a = new A();
+println(a.foo); // 2
+```
+
+Pour modifier la valeur d'un attribut il faut ajouter l'opérateur égal `=` suivi de la nouvelle valeur.
+
+```txt title="Exemple"
+class A {
+    int foo = 2;
+}
+A a = new A();
+a.foo = 3;
+println(a.foo); // 3
+```
+
+**Erreurs possibles**
+
+> [Incompatible types for assignment: expected X, got Y](/docs/references/errors/compilation#incompatible-types-for-assignment-expected-x-got-y)
+>
+> [Field X is already declared](/docs/references/errors/compilation#field-x-is-already-declared)
+>
+> [Object X does not have an attribute Y](/docs/references/errors/compilation#object-x-does-not-have-an-attribute-y)
+
+### Valeur par défaut
+
+Les valeurs par défaut sont :
+- entier : 0
+- décimaux : 0.0
+- booléen : false
+- classe : null
+
+Il est possible de changer la valeur par défaut en ajoutant une expression après la déclaration, séparé d'un `=`.
+
+Le comportement des valeurs par défaut permet d'utiliser un autre attribut dans une déclaration.\
+Cependant, si l'attribut est situé sur une ligne après la déclaration actuelle, la valeur de l'attribut sera équivalent à 0, car il est déclaré, mais en encore initialisé.\
+Si l'attribut est sur une ligne précédant la déclaration actuelle, la valeur utilisée sera sa valeur après initialisation.
+
+```txt title="Exemple"
+class Foo{
+    int x = y*y;
+    int y = 5;
+    int z = y*y;
+}
+```
+
+Ce code ne déclenche par d'erreur, cependant `x` et `z` auront une valeur différente :
+
+```txt
+{
+    Foo foo = new Foo();
+    println(foo.y); // 5
+    println(foo.x); // 0
+    println(foo.z); // 25
+}
+```
+
+Ce comportement est dû au fait qu'au moment de l'initialisation de `x`, `y` vaut 0, car il est connu, mais pas encore initialisé.
+Au moment de l'initialisation de `z`, `y` a été initialisé à 5, donc `z` vaut 25.
+
+### Accès à l'attribut
+
+Pour accéder aux attributs d'une classe, il faut indiquer le nom de classe suivi de l'attribut séparé par un point.
+
+Si l'attribut est lui-même une classe avec d'autres attributs, alors cela peut être chaîné pour accéder à l'attribut final.
+
+```txt title="Exemple"
+Foo foo = new Foo();
+Bar bar = new Bar();
+int a = foo.bar.x;
+```
+
+**Erreurs possibles**
+
+> [Unable to select a field of a non-class type](/docs/references/errors/compilation#unable-to-select-a-field-of-a-non-class-type)
+>
+> [Object X does not have an attribute Y](/docs/references/errors/compilation#object-x-does-not-have-an-attribute-y)
+>
+> [Memory error: Dereferencing a null value](/docs/references/errors/runtime#memory-error-dereferencing-a-null-value)
+
+## Méthodes
+
+Les méthodes sont des fonctions qui peuvent modifier ou non les attributs d'une classe, réaliser des calculs et renvoyer le résultat.
+L'objectif est de fournir un moyen de réutiliser du code sans le dupliquer.
+
+```txt title="Syntaxe"
+class A {
+    {type_retour} {nom} () {
+        //...instructions de la méthode
+    }
+}
+```
+
+Pour manipuler les attributs dans une méthode, il suffit de mentionner le nom de l'attribut, pour lever toute ambiguïté si un paramètre porte le même nom, on utilisera le mot clé `this`.
+
+Les méthodes peuvent retourner une variable grâce au mot clé `return` à utiliser si la méthode possède un type de retour.
+
+```txt title="Exemple"
+class Foo {
+    int a = 2;
+
+    int inca(int a){
+        this.a = this.a + a;
+        return this.a;
+    }
+}
+```
+
+**Erreurs possibles**
+
+> [Param X is already declared](/docs/references/errors/compilation#param-x-is-already-declared)
+>
+> [Method X is overridden with different number of parameters](/docs/references/errors/compilation#method-x-is-overridden-with-different-number-of-parameters)
+>
+> [Method X is overridden with a different return type](/docs/references/errors/compilation#method-x-is-overridden-with-a-different-return-type)
+>
+> [Method X is overridden using a Y parameter, while expecting type Z](/docs/references/errors/compilation#method-x-is-overridden-using-a-y-parameter-while-expecting-type-z)
+>
+> [Unable to call a method on the X primitive type](/docs/references/errors/compilation#unable-to-call-a-method-on-the-x-primitive-type)
+>
+> [X does not refer to any existing method](/docs/references/errors/compilation#x-does-not-refer-to-any-existing-method)
+>
+> [Trying to use the X Y as a method](/docs/references/errors/compilation#trying-to-use-the-x-y-as-a-method)
+>
+> [Does not match number of Method parameters of X, Y expected, but found Z](/docs/references/errors/compilation#does-not-match-number-of-method-parameters-of-x-y-expected-but-found-z)
+>
+> [Parameter X does not match Method type of Y, expected A but found B](/docs/references/errors/compilation#parameter-x-does-not-match-method-type-of-y-expected-a-but-found-b)
+>
+> [Cannot return a void value](/docs/references/errors/compilation#cannot-return-a-void-value)
+>
+> [Error while trying to access an attribute](/docs/references/errors/compilation#error-while-trying-to-access-an-attribute)
+

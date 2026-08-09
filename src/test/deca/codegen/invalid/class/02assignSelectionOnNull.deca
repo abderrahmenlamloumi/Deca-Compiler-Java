@@ -1,0 +1,9 @@
+//test du assign sur une variable deference
+class A{
+    int x = 0;
+}
+{
+    A a = null;
+    a.x = 5;
+    println(a.x);
+}

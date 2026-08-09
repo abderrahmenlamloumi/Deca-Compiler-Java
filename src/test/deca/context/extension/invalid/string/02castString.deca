@@ -1,0 +1,5 @@
+// Try to cast some objects to a string
+{
+    (string) (null);
+    (string) (new Object());
+}

@@ -1,0 +1,4 @@
+// Modulo not available for float type
+{
+    float o = 4.0 % 3.5;
+}

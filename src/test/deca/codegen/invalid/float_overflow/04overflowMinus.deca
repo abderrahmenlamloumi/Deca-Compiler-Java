@@ -1,0 +1,13 @@
+// Description:
+//    Test overflow float avec minus.
+//    Doit déclencher une erreur d'overflow float (à la compilation ou exécution).
+// Historique:
+//    Créé le 03/06/2025
+
+// Test de dépassement de capacité sur une soustraction
+{
+    float x = 0x1.fffffep127 * (0-1);   // = -Float.MAX_VALUE
+    float y = 0x1.ffffep127;
+    float z = x - y;
+    print(z);
+}

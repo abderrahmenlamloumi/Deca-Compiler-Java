@@ -1,0 +1,22 @@
+//test d'heritage croise
+class Item {}
+class Ticket extends Item {
+    int session = 1;
+}
+
+class Shop {
+    Item get() {
+        return new Item();
+    }
+}
+class Cinema extends Shop {
+    Ticket get() {
+        return new Ticket();
+    }
+}
+
+{
+    Cinema cinema = new Cinema();
+    Ticket ticket = cinema.get();
+    println(ticket.session);
+}

@@ -1,0 +1,19 @@
+//test de comparaison entre deux arrays
+class Test {
+    void test(float[] array1, float[] array2) {
+        if (array1 == array2) {
+            println("array1 and array2 are the same reference");
+        } else {
+            println("array1 and array2 are different references");
+        }
+    }
+}
+
+{
+    float[] arr1 = new float[3];
+    float[] arr2 = new float[0];
+    Test test = new Test();
+    test.test(arr1, arr1);
+    test.test(arr1, arr2);
+    test.test(null, null);
+}

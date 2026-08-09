@@ -1,0 +1,15 @@
+// ces calculs prennent beaucoup de temps !
+#include "Math.decah"
+
+{
+  Math m = new Math();
+  float pi = 2*m.asin(1.0);
+  float g = 2*pi;
+  println(3);
+  println(pi, " => ", m.sin(pi), " = 0 environ");
+  println(4);
+  while (g <= 0x1.0p120) {
+    println(m.sin(pi+g), " = 0 environ");
+    g = g*17;
+  }
+}

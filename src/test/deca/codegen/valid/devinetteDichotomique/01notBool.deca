@@ -1,0 +1,16 @@
+//test du not unaire
+{
+    boolean b = true;
+    b = !b;
+    if (b) { println("true1"); }
+    b = !b;
+    if (b) { println("true2"); }
+    b = !b;
+    if (b) { println("true3"); }
+    b = !b;
+    if (b) { println("true4"); }
+
+    if (!b) { println("true5"); }
+    if (!!b) { println("true6"); }
+    if (!!!b) { println("true5"); }
+}

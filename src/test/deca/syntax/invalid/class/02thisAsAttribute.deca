@@ -1,0 +1,6 @@
+// this en tant qu'attribut, alors que c'est un mot réservé
+
+class A {
+    int this = 8;
+}
+{}

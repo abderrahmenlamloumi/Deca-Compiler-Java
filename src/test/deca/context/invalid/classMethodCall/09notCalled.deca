@@ -1,0 +1,11 @@
+//Teste qu’une méthode référencée sans appel explicite (bar; au lieu de bar()) ne produit aucun effet à l’exécution, et que le programme reste valide.
+class Foo {
+    void bar() {
+        bar; // Comment émettre une méthode non appelée ?
+    }
+}
+
+{
+    Foo f = new Foo();
+    f.bar();
+}

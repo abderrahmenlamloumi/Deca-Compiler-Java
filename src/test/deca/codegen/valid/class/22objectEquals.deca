@@ -1,0 +1,15 @@
+// Teste la méthode equals() avec différentes conditions, vérifiant la comparaison d'objets Foo et Bar avec null et entre eux, et l'utilisation de la méthode equals() redéfinie dans la classe Bar.
+class Foo {}
+class Bar {
+    boolean equals(Object o) {
+        return true;
+    }
+}
+
+{
+    Foo f = new Foo();
+    if (new Foo().equals(null)) { println("true"); } else { println("false"); } // false
+    if (new Foo().equals(new Foo())) { println("true"); } else { println("false"); } // false
+    if (f.equals(f)) { println("true"); } else { println("false"); } // true
+    if (new Bar().equals(f)) { println("true"); } else { println("false"); } // true
+}

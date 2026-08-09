@@ -1,0 +1,4 @@
+// Test qu'une classe est bien généré
+
+class A {}
+{}

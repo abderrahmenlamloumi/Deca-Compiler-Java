@@ -1,0 +1,9 @@
+// Underflow encore + extrême
+
+{
+    if (4.9e-325 == 0.0) {
+        println("Underflow detected");
+    } else {
+        println("No underflow");
+    }
+}

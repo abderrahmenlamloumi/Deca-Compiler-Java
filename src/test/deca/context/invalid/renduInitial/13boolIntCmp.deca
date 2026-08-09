@@ -1,0 +1,11 @@
+// Description:
+//    Comparaison de typage
+//
+// Resultats:
+//    "Compared operands aren't supported"
+// 
+// Historique:
+//    cree le 02/06/2025
+{
+    true == 1;
+}

@@ -1,0 +1,14 @@
+// Ensure that nested ifs are properly parsed and generated
+{
+    if (false) {
+        println("??");
+    } else if (false) {
+        println("??");
+    } else if (false) {
+        println("??");
+    } else if (true) {
+        println("true");
+    } else {
+        println("??");
+    }
+}

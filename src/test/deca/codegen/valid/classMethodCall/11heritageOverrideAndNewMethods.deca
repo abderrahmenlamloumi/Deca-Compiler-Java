@@ -1,0 +1,42 @@
+//Teste l’héritage et le polymorphisme, en vérifiant que les méthodes redéfinies dans une sous-classe sont appelées correctement via une référence de la superclasse.
+class A{
+    void a(){
+        println("a");
+    }
+    void b(){
+        println("b");
+    }
+    void c(){
+        println("c");
+    }
+    void d(){
+        println("d");
+    }
+}
+class B extends A{
+    void b(){
+        println("B");
+    }
+    void d(){
+        println("D");
+    }
+    void e(){
+        println("E");
+    }
+    void f(){
+        println("F");
+    }
+}
+
+{
+    B b = new B();
+    A a = b;
+    a.b();
+    a.a();
+    a.c();
+    a.a();
+    b.f();
+    a.a();
+    b.f();
+    a.a();
+}

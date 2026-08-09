@@ -1,0 +1,9 @@
+//test print de string (avec initialisation a 'null')
+class Foo {
+    string s;
+}
+
+{
+    Foo f = new Foo();
+    print(f.s);
+}

@@ -1,0 +1,11 @@
+// Classe Holder où x dépend de y, mais y est initialisé après x.
+// La valeur de x sera correctement calculée et affichée, avec x = 12.
+class Holder {
+    int x = 12 + y;
+    int y = 2;
+}
+
+{
+     Holder h1 = new Holder();
+     println(h1.x);
+}

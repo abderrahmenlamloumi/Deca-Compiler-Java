@@ -1,0 +1,12 @@
+//Teste l'exécution d'une méthode pre() en ASM qui retourne la valeur 55, puis affiche cette valeur avec println().
+class Kernel {
+
+    int pre() asm("
+        LOAD #55, R0
+        RTS
+    ");
+}
+
+{
+    println(new Kernel().pre());
+}

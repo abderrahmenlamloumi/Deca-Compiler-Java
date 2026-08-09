@@ -1,0 +1,7 @@
+{
+    void[] a = new void[3];
+
+    println("test");
+}
+
+

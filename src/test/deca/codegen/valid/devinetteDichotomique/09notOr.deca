@@ -1,0 +1,13 @@
+//test du non unaire avec le ou logique
+{
+    boolean t = true, f = false;
+    if (!(false || false)) { println("true"); } else { println("false"); }
+    if (!(true || false)) { println("true"); } else { println("false"); }
+    if (!(false || true)) { println("true"); } else { println("false"); }
+    if (!(true || true)) { println("true"); } else { println("false"); }
+
+    if (!(f || f)) { println("true"); } else { println("false"); }
+    if (!(t || f)) { println("true"); } else { println("false"); }
+    if (!(f || t)) { println("true"); } else { println("false"); }
+    if (!(t || t)) { println("true"); } else { println("false"); }
+}

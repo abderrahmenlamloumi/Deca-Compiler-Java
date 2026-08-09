@@ -1,0 +1,10 @@
+// Teste l'appel d'une méthode avec un paramètre de type float et l'affichage de sa valeur.
+class Foo {
+    void bar(float x){
+        println(x);
+    }
+}
+{
+    Foo f = new Foo();
+    f.bar(5);
+}

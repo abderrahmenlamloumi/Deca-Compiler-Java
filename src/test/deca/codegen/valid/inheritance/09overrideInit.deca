@@ -1,0 +1,18 @@
+//test override de la methode du parent, a l'initialisation (par default)
+class Foo {
+    int x = get();
+    int get() {
+        return 4;
+    }
+}
+class Bar extends Foo {
+    int y = 156;
+    int get() {
+        return y;
+    }
+}
+
+{
+    Foo foo = new Bar();
+    println(foo.x);
+}

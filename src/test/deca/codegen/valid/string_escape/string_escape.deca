@@ -1,0 +1,14 @@
+// Description:
+//    Programme minimaliste vérifiant l'échappement du caractère '\' via '\\'
+//
+// Resultats:
+//    Print d'un backslash \
+//
+// Historique:
+//    cree le 02/06/2025
+
+{
+        println("Un backslash \\");
+        println("Un guillemet \"");
+        println("Un mélange guillemet et backslash \\\"\\");
+}

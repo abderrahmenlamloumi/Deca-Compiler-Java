@@ -1,0 +1,19 @@
+// Exemple context/invalid - cf [SyntaxeContextuelle] p. 84
+
+class A {
+  protected int x;
+}
+
+class B extends A {
+  int getX(A a) {
+    return a.x; // Erreur contextuelle : x est protege
+  }
+}
+
+class X {
+  void m(){
+    A a = new A();
+    B b = new B();
+    println(b.getX(a)) ; 
+  }
+}

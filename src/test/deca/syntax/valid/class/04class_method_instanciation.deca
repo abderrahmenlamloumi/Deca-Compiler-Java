@@ -1,0 +1,17 @@
+// test utilisation méthode sur objet instancié
+
+class Factory {
+    List newList() {
+        return new List();
+    }
+}
+class List {
+    int size() {
+        return 0;
+    }
+}
+
+{
+    List l = new Factory().newList();
+    println(l.size());
+}

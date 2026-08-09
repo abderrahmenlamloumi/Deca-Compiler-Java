@@ -1,0 +1,32 @@
+//test de l'utilisation des attributs du parent dans la methode de l'enfant
+class Foo {
+    int field1;
+    int field2;
+
+    void basePrint() {
+        println(field1, " ", field2);
+    }
+}
+
+class Bar extends Foo {
+    void set(int a, int b) {
+        field1 = a;
+        field2 = b;
+    }
+
+    void childPrint() {
+        println(field1, " - ", field2);
+    }
+}
+
+{
+    Bar b = new Bar();
+    b.set(5861, 2319);
+    b.basePrint();
+    b.childPrint();
+
+    b.field1 = 1234;
+    b.field2 = 5678;
+    b.basePrint();
+    b.childPrint();
+}

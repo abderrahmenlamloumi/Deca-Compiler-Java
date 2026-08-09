@@ -1,0 +1,13 @@
+///Teste la comparaison d’instances de classes différentes avec l’opérateur ==, pour vérifier que deux objets distincts ne sont pas considérés comme identiques, même s’ils sont créés séparément.
+class Foo {}
+class Bar {}
+
+{
+    Foo foo = new Foo();
+    Bar bar = new Bar();
+    if (foo == bar) {
+        println("foo and bar are the same instance");
+    } else {
+        println("foo and bar are different instances");
+    }
+}

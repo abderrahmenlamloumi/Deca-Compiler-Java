@@ -1,0 +1,9 @@
+// Underflow : float tellement petit qu'il est considéré égal à 0.0
+
+{
+    if (1.4e-46 == 0.0) {
+        println("Underflow detected");
+    } else {
+        println("No underflow");
+    }
+}

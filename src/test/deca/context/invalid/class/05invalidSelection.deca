@@ -1,0 +1,6 @@
+// Vérifie qu'une variable de type primitif n'ai pas d'attributs
+
+{
+    int x = 5;
+    int y = x.attr;
+}

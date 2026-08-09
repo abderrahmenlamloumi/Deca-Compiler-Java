@@ -1,0 +1,11 @@
+//test du nombre de parametre avec l'option limitant la pile
+// runtime-options: -p 10
+class Foo {
+    int sum(int a, int b, int c, int d) {
+        return a + b + c + d;
+    }
+}
+
+{
+    new Foo().sum(4, 5, 6, 7);
+}

@@ -1,0 +1,17 @@
+//Teste la distinction entre noms de méthodes sensibles à la casse, pour vérifier que important() et IMPORTANT() sont traitées comme deux méthodes différentes.
+class Foo {
+    int important() {
+        return 42;
+    }
+    int IMPORTANT() {
+        return 24;
+    }
+}
+
+{
+    Foo foo = new Foo();
+    println(foo.important());
+    println(foo.IMPORTANT());
+    println(foo.IMPORTANT());
+    println(foo.important());
+}

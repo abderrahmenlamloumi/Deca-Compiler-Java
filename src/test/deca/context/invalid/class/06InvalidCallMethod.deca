@@ -1,0 +1,10 @@
+// Vérifie qu'une selection d'une méthode déclenche une erreur
+
+class A {
+  int x;
+  void foo() {}
+}
+{
+  A a = new A();
+  int y = a.foo; //This test should be on method not attribute
+}

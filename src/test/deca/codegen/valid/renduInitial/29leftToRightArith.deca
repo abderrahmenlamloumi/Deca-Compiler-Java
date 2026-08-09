@@ -1,0 +1,12 @@
+{
+    int i = 2;
+    println((i = 7) + i);
+    i = 2;
+    println((i = 1) - i);
+    i = 2;
+    println((i = 3) * i);
+    i = 2;
+    println((i = 4) / i);
+    i = 2;
+    println((i = 5) % i);
+}

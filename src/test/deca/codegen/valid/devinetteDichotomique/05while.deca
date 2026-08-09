@@ -1,0 +1,10 @@
+//test de l'instruction while avec condition d'arret
+{
+    int n = 0;
+    while(n!=0){
+        println(n);
+        n = n - 1;
+    }
+    println(n);
+}
+

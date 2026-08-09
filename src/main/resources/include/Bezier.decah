@@ -1,0 +1,25 @@
+// Grenoble INP - Ensimag projet GL -*- mode: java -*-
+// Library for class Bezier of Deca, coded in Deca
+
+class Bezier {
+
+    Point start = null;
+    Point end = null;
+
+    Point getStart() {
+        return start;
+    }
+
+    void setEnd(Point end) {
+        this.end = end;
+    }
+    Point getEnd() {
+        return end;
+    }
+    void setStart(Point start) {
+        this.start = start;
+    }
+
+}
+
+// End of Deca Bezier library

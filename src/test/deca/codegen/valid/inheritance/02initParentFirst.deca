@@ -1,0 +1,13 @@
+//test d'heritage des variables
+class Foo {
+    int x = 428;
+    int y = 179;
+}
+
+class Bar extends Foo {
+    int z = x * y;
+}
+
+{
+    println(new Bar().z);
+}

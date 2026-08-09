@@ -1,0 +1,19 @@
+//Teste l'affichage avec des instructions ASM en appelant pre(5, 10, 15) pour afficher successivement les valeurs 5, 10, et 15.
+class Kernel {
+    void pre(int n, int m, int p) asm("
+        LOAD -3(LB), R1
+        WINT
+        WNL
+        LOAD -4(LB), R1
+        WINT
+        WNL
+        LOAD -5(LB), R1
+        WINT
+        RTS
+    ");
+}
+
+{
+    Kernel k = new Kernel();
+    k.pre(5, 10, 15);
+}

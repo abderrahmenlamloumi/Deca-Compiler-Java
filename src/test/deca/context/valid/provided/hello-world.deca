@@ -1,0 +1,12 @@
+// Description:
+//    Programme minimaliste utilisant println.
+//
+// Resultats:
+//    Hello
+//
+// Historique:
+//    cree le 08/04/2025
+
+{
+        println("Hello, world!");
+}

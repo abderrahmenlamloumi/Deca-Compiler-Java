@@ -1,0 +1,743 @@
+#include "UserIO.decah"
+#include "Sleep.decah"
+#include "LinearBezier.decah"
+
+
+class Paint extends UserIO {
+
+    Math math = new Math();
+    Time time = new Time();
+
+    MouseEvent previousClick;
+
+    int totalSize = 100;
+    Point[] points = new Point[totalSize];
+    int size = 0;
+
+    int radius = 10;
+
+    int colorCode = 41;
+    boolean isDrawingMode = false;
+    boolean inProcess = false;
+
+    int widthLimit = 158;
+
+    void resetSelection(){
+        int i = 0;
+        while (i < size){
+            this.setCursorAt((int) (points[i].x), (int) (points[i].y));
+            sendCommandInt(colorCode);
+            print(" ");
+            i = i + 1;
+        }
+        setWhiteBackground();
+        points = new Point[totalSize];
+        size = 0;
+        resetFirstLine();
+    }
+
+    void onMouseEvent(MouseEvent me){
+        if (me.isPressed) {
+
+            if (isDrawingMode){
+
+                drawCircle((int) (me.x), (int) (me.y), radius);
+                onFPressed();
+                resetSelection();
+            } else {
+                if (size >= totalSize){
+                    resetFirstLine();
+                } else {
+                    this.setCursorAt((int) (me.x), (int) (me.y));
+                    setBlackBackground();
+                    print(" ");
+                    points[size] = new Point();
+                    points[size].x = me.x;
+                    points[size].y = me.y;
+                    size = size + 1;
+                    setWhiteBackground();
+                    resetFirstLine();
+                }
+            }
+            resetFirstLine();
+            cursorHome();
+        }
+    }
+
+    void drawCircle(int cx, int cy, int r) {
+        float px, py;
+        float angle = -math.pi;
+        float step = math.pi*2/(r*2)*1.05;
+        int i = 0;
+        float ratio = 4/2;
+
+        inProcess = true;
+        resetFirstLine();
+
+
+        points = new Point[totalSize];
+
+        while (angle < math.pi && i < totalSize) {
+
+            px = cx + (r) * math.cos(angle);
+            py = cy + (r/ratio) * math.sin(angle);
+
+            points[i] = new Point();
+            points[i].x = (int) (px);
+            points[i].y = (int) (py);
+
+            angle = angle + step;
+            i = i + 1;
+        }
+
+        inProcess = false;
+        resetFirstLine();
+
+        size = i;
+        linkAllPoints(true, false);
+    }
+
+    void onOPressed() {
+        if (size > 0){
+            drawCircle((int) (points[size-1].x), (int) (points[size-1].y), radius);
+        }
+
+    }
+
+    void onNPressed(){
+        resetSelection();
+    }
+
+    void lastLineCursor() {
+        setCursorAt(0, (int) (screenSize.y));
+    }
+
+    void drawYLimit() {
+        int i = 2;
+        while (i < screenSize.y){
+            setCursorAt(widthLimit, i);
+            setBlackBackground();
+            print(" ");
+            i = i + 1;
+        }
+    }
+
+    void resetFirstLine() {
+        int j = 0;
+        cursorHome();
+        setGreenBackground();
+        while (j < screenSize.x) {
+            print(" ");
+            j = j + 1;
+        }
+        lastLineCursor();
+        j = 0;
+        while (j < screenSize.x) {
+            print(" ");
+            j = j + 1;
+        }
+        cursorHome();
+        setGreenBackground();
+        print("Paint GL10");
+
+        print(" | ");
+
+        sendCommandInt(colorCode);
+        print("Couleur sélectionnée");
+
+        setGreenBackground();
+        print(" | ");
+
+        sendCommandInt(40);
+        print("A");
+        sendCommandInt(41);
+        print("Z");
+        sendCommandInt(42);
+        print("E");
+        sendCommandInt(43);
+        print("R");
+        sendCommandInt(44);
+        print("T");
+        sendCommandInt(45);
+        print("Y");
+        sendCommandInt(46);
+        print("U");
+        sendCommandInt(47);
+        print("I");
+
+        setGreenBackground();
+        print(" | Points size : ", size);
+        print(" | Radius : ", radius, " | ");
+        if (me != null){
+            print(" | Dernier clic : ", (int) (me.x), " ", (int) (me.y), " | ");
+        }
+
+        print(" | ScreenSize : ", (int) (screenSize.x), "*", (int) (screenSize.y), " | ");
+
+        if (isDrawingMode) {
+            print("MODE DESSIN ACTIVÉ");
+        }
+
+        if (inProcess) {
+            print(" | Opération en cours... | ");
+        }
+
+
+
+        lastLineCursor();
+
+        print(" | Clic G : Placer point");
+
+        print(" | ENTRER : Confirmer point");
+
+        print(" | W : Effacer");
+
+        print(" | F : Remplir");
+
+        print(" | G : Relier 1");
+
+        print(" | H : Relier 2");
+
+        print(" | M : Carré");
+
+        setWhiteBackground();
+        cursorHome();
+    }
+
+    void onKeyInput(int key){
+        if (key == 43 && radius < 50){
+            radius = radius + 1;
+            resetFirstLine();
+            eraseAll(true);
+            drawCircle(216, 25, radius);
+            resetSelection();
+         } else if (key == 45 && radius > 0) {
+            radius = radius - 1;
+            resetFirstLine();
+            eraseAll(true);
+            drawCircle(216, 25, radius);
+            resetSelection();
+         }
+    }
+
+    void onDELETEPressed(){
+        if (size > 0){
+            this.setCursorAt((int) (points[size-1].x), (int) (points[size-1].y));
+            setWhiteBackground();
+            print(" ");
+            size = size - 1;
+            resetFirstLine();
+        }
+    }
+
+    void onSPACEPressed(){
+    }
+
+    void onWPressed() {
+        eraseAll(false);
+        resetSelection();
+    }
+
+
+    void onDPressed() {
+        isDrawingMode = !isDrawingMode;
+        resetFirstLine();
+    }
+
+    void resetLine(boolean startAtXLimit, int line) {
+        int j;
+        if (startAtXLimit) {
+            j = widthLimit + 1;
+            setCursorAt(widthLimit + 1, line);
+        } else {
+            j = 0;
+        }
+
+        setWhiteBackground();
+        while (j < screenSize.x) {
+            print(" ");
+            j = j + 1;
+        }
+    }
+
+
+    void eraseAll(boolean startAtXLimit){
+        int i = 1;
+        int j = 1;
+        // Init first Line
+        resetFirstLine();
+        i = i + 1;
+        println();
+
+        while (i < screenSize.y-1) {
+            resetLine(startAtXLimit, i);
+            println("");
+            i = i + 1;
+        }
+        drawYLimit();
+        drawCircle(216, 25, radius);
+        resetSelection();
+
+        resetStyle();
+        cursorHome();
+    }
+
+    void start(){
+        enableMouseInput();
+        getScreenSize();
+        cursorHome();
+        eraseAll(false);
+        drawYLimit();
+        drawCircle(216, 25, radius);
+        resetSelection();
+
+        callbackOnInputExitable(113);
+    }
+
+    void onAPressed() {
+        colorCode = 40;
+        resetFirstLine();
+    }
+
+    void onZPressed() {
+        colorCode = 41;
+        resetFirstLine();
+    }
+
+    void onEPressed() {
+        colorCode = 42;
+        resetFirstLine();
+    }
+
+    void onRPressed() {
+        colorCode = 43;
+        resetFirstLine();
+    }
+
+    void onTPressed() {
+        colorCode = 44;
+        resetFirstLine();
+    }
+
+    void onYPressed() {
+        colorCode = 45;
+        resetFirstLine();
+    }
+
+    void onUPressed() {
+        colorCode = 46;
+        resetFirstLine();
+    }
+
+    void onIPressed() {
+        colorCode = 47;
+        resetFirstLine();
+    }
+
+
+
+    void linkAllPoints(boolean close, boolean reset) {
+        LinearBezier b = new LinearBezier();
+        float step;
+        float i = 0;
+        int j = 0;
+        Point o;
+        Point d;
+        Point c;
+
+        inProcess = true;
+
+        resetFirstLine();
+
+        while (j < size - 1){
+
+            step = math.sqrt(math.pow(points[j].x - points[j+1].x, 2) + math.pow(points[j].y - points[j+1].y, 2)) * 1.2;
+            if (step == 0){
+                step = 0.01;
+            } else {
+                step = 1/step;
+            }
+            b.set(points[j], points[j+1]);
+            i = 0;
+            while(i < 1) {
+
+                c = b.getPointAtCurve(i);
+                this.setCursorAt((int) (c.x), (int) (c.y));
+                sendCommandInt(colorCode);
+                print(" ");
+                i = i + step;
+            }
+            j = j + 1;
+        }
+
+        if (close) {
+
+            step = math.sqrt(math.pow(points[size-1].x - points[0].x, 2) + math.pow(points[size-1].y - points[0].y, 2)) * 1.5;
+            if (step == 0){
+                step = 0.01;
+            } else {
+                step = 1/step;
+            }
+
+
+            b.set(points[size-1], points[0]);
+
+            i = 0;
+            while(i < 1) {
+                c = b.getPointAtCurve(i);
+                this.setCursorAt((int) (c.x), (int) (c.y));
+                sendCommandInt(colorCode);
+                print(" ");
+                i = i + step;
+            }
+        }
+
+        inProcess = false;
+        resetFirstLine();
+
+        resetStyle();
+        if (reset){
+            resetSelection();
+        }
+    }
+
+
+    void onGPressed() {
+        linkAllPoints(false, false);
+    }
+
+
+    void onHPressed() {
+        linkAllPoints(true, false);
+    }
+
+
+
+    boolean isInside(int xp, int yp){
+        float x1;
+        float y1;
+        float x2;
+        float y2;
+        int cnt = 0;
+        int j = 0;
+        while (j < size - 1){
+
+            x1 = points[j].x;
+            y1 = points[j].y;
+
+            x2 = points[j+1].x;
+            y2 = points[j+1].y;
+            if ((yp < y1) != (yp < y2) && (xp < (x1 + ((yp - y1)/(y2-y1)) * (x2-x1)))){
+                cnt = cnt + 1;
+            }
+            j = j + 1;
+        }
+
+        x1 = points[size-1].x;
+        y1 = points[size-1].y;
+
+        x2 = points[0].x;
+        y2 = points[0].y;
+        if ((yp < y1) != (yp < y2) && (xp < (x1 + ((yp - y1)/(y2-y1)) * (x2-x1)))){
+            cnt = cnt + 1;
+        }
+
+        return cnt%2 == 1;
+    }
+
+    void onFPressed(){
+        int i = 0;
+        int j = 0;
+        int minX = 9999, maxX = -1 , minY = 9999, maxY = -1;
+
+        inProcess = true;
+        resetFirstLine();
+
+        while (i < size ) {
+            if (minX > points[i].x){
+                minX = (int) (points[i].x);
+            }
+            if (maxX < points[i].x){
+                maxX = (int) (points[i].x);
+            }
+            if (minY > points[i].y){
+                minY = (int) (points[i].y);
+            }
+            if (maxY < points[i].y){
+                maxY = (int) (points[i].y);
+            }
+            i = i + 1;
+        }
+
+        /*
+        minX = 0;
+        maxX = (int) (screenSize.x);
+        minY = 0;
+        maxY = (int) (screenSize.y);*/
+
+
+
+        i = minY;
+        while (i < maxY) {
+            j = minX;
+            while (j < maxX) {
+                if (isInside(j, i)){
+                    this.setCursorAt(j, i);
+                    sendCommandInt(colorCode);
+                    print(" ");
+                }
+                j = j + 1;
+            }
+            i = i + 1;
+        }
+
+        inProcess = false;
+        enableMouseInput();
+        resetStyle();
+    }
+
+
+    void drawEnsimag(float space, float offsetXInit, float offsetYInit) {
+
+        float offsetX = offsetXInit;
+        float offsetY = offsetYInit;
+        int i = 0;
+
+
+
+        // E
+
+        size = 12;
+        points = new Point[size];
+        while (i < size){
+            points[i] = new Point();
+            i = i + 1;
+        }
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 10);
+        points[2].setXY(offsetX + 9 ,offsetY + 10);
+        points[3].setXY(offsetX + 9 ,offsetY + 8);
+        points[4].setXY(offsetX + 3 ,offsetY + 8);
+        points[5].setXY(offsetX + 3 ,offsetY + 6);
+        points[6].setXY(offsetX + 7 ,offsetY + 6);
+        points[7].setXY(offsetX + 7 ,offsetY + 4);
+        points[8].setXY(offsetX + 3 ,offsetY + 4);
+        points[9].setXY(offsetX + 3 ,offsetY + 2);
+        points[10].setXY(offsetX + 9 ,offsetY + 2);
+        points[11].setXY(offsetX + 9 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+        // N
+
+        size = 10;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 10);
+        points[2].setXY(offsetX + 3 ,offsetY + 10);
+        points[3].setXY(offsetX + 3 ,offsetY + 3);
+        points[4].setXY(offsetX + 9 ,offsetY + 10);
+        points[5].setXY(offsetX + 12 ,offsetY + 10);
+        points[6].setXY(offsetX + 12 ,offsetY);
+        points[7].setXY(offsetX + 9 ,offsetY);
+        points[8].setXY(offsetX + 9 ,offsetY + 7);
+        points[9].setXY(offsetX + 3 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+        // S
+
+        size = 12;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space + 3;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 6);
+        points[2].setXY(offsetX + 6 ,offsetY + 6);
+        points[3].setXY(offsetX + 6 ,offsetY + 8);
+        points[4].setXY(offsetX ,offsetY + 8);
+        points[5].setXY(offsetX ,offsetY + 10);
+        points[6].setXY(offsetX + 9 ,offsetY + 10);
+        points[7].setXY(offsetX + 9 ,offsetY + 4);
+        points[8].setXY(offsetX + 3 ,offsetY + 4);
+        points[9].setXY(offsetX + 3 ,offsetY + 2);
+        points[10].setXY(offsetX + 9 ,offsetY + 2);
+        points[11].setXY(offsetX + 9 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+        // I
+
+        size = 12;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space + 2;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 2);
+        points[2].setXY(offsetX + 3 ,offsetY + 2);
+        points[3].setXY(offsetX + 3 ,offsetY + 8);
+        points[4].setXY(offsetX ,offsetY + 8);
+        points[5].setXY(offsetX ,offsetY + 10);
+        points[6].setXY(offsetX + 9 ,offsetY + 10);
+        points[7].setXY(offsetX + 9 ,offsetY + 8);
+        points[8].setXY(offsetX + 6 ,offsetY + 8);
+        points[9].setXY(offsetX + 6 ,offsetY + 2);
+        points[10].setXY(offsetX + 9 ,offsetY + 2);
+        points[11].setXY(offsetX + 9 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+
+        // M
+
+        size = 12;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space + 2;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 10);
+        points[2].setXY(offsetX + 3 ,offsetY + 10);
+        points[3].setXY(offsetX + 3 ,offsetY + 2);
+        points[4].setXY(offsetX + 6 ,offsetY + 6);
+        points[5].setXY(offsetX + 9 ,offsetY + 2);
+        points[6].setXY(offsetX + 9 ,offsetY + 10);
+        points[7].setXY(offsetX + 12 ,offsetY + 10);
+        points[8].setXY(offsetX + 12 ,offsetY);
+        points[9].setXY(offsetX + 9 ,offsetY);
+        points[10].setXY(offsetX + 6 ,offsetY + 4);
+        points[11].setXY(offsetX + 3 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+        // A
+
+        size = 12;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space + 5;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 10);
+        points[2].setXY(offsetX + 2 ,offsetY + 10);
+        points[3].setXY(offsetX + 2 ,offsetY + 5);
+        points[4].setXY(offsetX + 6 ,offsetY + 5);
+        points[5].setXY(offsetX + 6 ,offsetY + 10);
+        points[6].setXY(offsetX + 8 ,offsetY + 10);
+        points[7].setXY(offsetX + 8 ,offsetY);
+        points[8].setXY(offsetX+2,offsetY);
+        points[9].setXY(offsetX+2 ,offsetY+4);
+        points[10].setXY(offsetX + 7 ,offsetY + 4);
+        points[11].setXY(offsetX + 6 ,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+        // G
+
+        size = 12;
+        i = 0;
+        points = new Point[size];
+        while (i < size){
+           points[i] = new Point();
+           i = i + 1;
+        }
+
+        offsetX = offsetX + space ;
+
+        points[0].setXY(offsetX,offsetY);
+        points[1].setXY(offsetX,offsetY + 10);
+        points[2].setXY(offsetX + 10, offsetY + 10);
+        points[3].setXY(offsetX + 10, offsetY + 4);
+        points[4].setXY(offsetX + 6 , offsetY + 4);
+        points[5].setXY(offsetX + 6 , offsetY + 5);
+        points[6].setXY(offsetX + 10 , offsetY + 5);
+        points[7].setXY(offsetX + 8 , offsetY+8);
+        points[8].setXY(offsetX+2, offsetY+8);
+        points[9].setXY(offsetX+2, offsetY+2);
+        points[10].setXY(offsetX + 10 ,offsetY + 2);
+        points[11].setXY(offsetX + 10,offsetY);
+
+        onHPressed();
+        //time.sleep(1);
+        onFPressed();
+
+
+
+
+        resetSelection();
+    }
+
+    void onMPressed(){
+
+        colorCode = 42;
+        drawEnsimag(12.0, 4.0, 4.0);
+        time.sleep(1);
+
+        colorCode = 41;
+        drawEnsimag(12.0, 16.0, 16.0);
+        time.sleep(1);
+
+        colorCode = 44;
+        drawEnsimag(12.0, 28.0, 28.0);
+        time.sleep(1);
+
+        colorCode = 45;
+        drawEnsimag(12.0, 40.0, 40.0);
+        time.sleep(1);
+
+        colorCode = 46;
+        drawEnsimag(12.0, 52.0, 52.0);
+        time.sleep(1);
+    }
+
+
+}

@@ -1,0 +1,4 @@
+//test printlnx d'un decimal
+{
+    printlnx(25.0);
+}

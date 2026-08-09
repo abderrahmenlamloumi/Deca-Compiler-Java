@@ -1,0 +1,183 @@
+//test de l'ensemble des fonctionnalites apporte dans l'extension math
+#include "Math.decah"
+
+{
+    Math m = new Math();
+
+    // === CONSTANTS TEST ===
+    println("=== CONSTANTS TEST ===:");
+    println("π:"); println(m.pi);               // ≈ 3.1415927
+    println("2π:"); println(m.two_pi);          // ≈ 6.2831854
+    println("MIN_FLOAT:"); println(m.MIN_FLOAT);// ≈ 1.40130e-45
+
+    // === ULP TESTS ===
+    println("=== ULP TESTS ===");
+    println("ULP(0.0):"); println(m.ulp(0.0));      // ~1.4013e-45
+    println("ULP(1.0):"); println(m.ulp(1.0));      // ~1.1920929e-7
+    println("ULP(2.0):"); println(m.ulp(2.0));      // ~2.3841858e-7
+    println("ULP(-5.5):"); println(m.ulp(-5.5));    // ~9.536743e-7
+
+    // === FACTORIAL TESTS ===
+    println(" === FACTORIAL TESTS ===");
+    println("fact(0):"); println(m.fact(0));        // 1
+    println("fact(1):"); println(m.fact(1));        // 1
+    println("fact(5):"); println(m.fact(5));        // 120
+    println("fact(7):"); println(m.fact(7));        // 5040
+
+    // === FLOOR TESTS ===
+    println("=== FLOOR TESTS ===");
+    println("floor(3.7):"); println(m.floor(3.7));      // 3
+    println("floor(-2.3):"); println(m.floor(-2.3));    // -3
+    println("floor(5.0):"); println(m.floor(5.0));      // 5
+    println("floor(-5.6):"); println(m.floor(-5.6));    // -6
+    println("floor(0.0):"); println(m.floor(0.0));      // 0
+    println("floor(1.9999):"); println(m.floor(1.9999));// 1
+    println("floor(-1.0001):"); println(m.floor(-1.0001));// -2
+    println("floor(MIN_FLOAT):"); println(m.floor(m.MIN_FLOAT));   // 0
+    println("floor(-MIN_FLOAT):"); println(m.floor(-m.MIN_FLOAT)); // -1
+
+    // === NORMALIZE ANGLE TESTS ===
+    println("=== NORMALIZE ANGLE TESTS ===");
+    println("normalize(0):"); println(m.normalize(0.0));                  // 0
+    println("normalize(pi):"); println(m.normalize(m.pi));               // pi
+    println("normalize(-pi):"); println(m.normalize(-m.pi));             // -pi
+    println("normalize(3*pi):"); println(m.normalize(3 * m.pi));         // -pi
+    println("normalize(-5*pi):"); println(m.normalize(-5 * m.pi));       // -pi
+
+    // === TRIGONOMETRIC TESTS: sin, cos ===
+    println("=== TRIGONOMETRIC TESTS: sin, cos ===");
+    println("sin(0):"); println(m.sin(0.0));                             // 0
+    println("cos(0):"); println(m.cos(0.0));                             // 1
+    println("sin(pi/6):"); println(m.sin(m.pi / 6));                     // ~0.5
+    println("cos(pi/6):"); println(m.cos(m.pi / 6));                     // ~0.866
+    println("sin(pi/2):"); println(m.sin(m.pi / 2));                     // ~1
+    println("cos(pi):"); println(m.cos(m.pi));                           // ~-1
+    println("sin(3*pi):"); println(m.sin(3 * m.pi));                     // ~0
+    println("cos(2*pi):"); println(m.cos(2 * m.pi));                     // ~1
+    println("sin(pi):"); println(m.sin(m.pi));                           // ~0
+    println("cos(pi/2):"); println(m.cos(m.pi / 2));                     // ~0
+    println("sin(2*pi):"); println(m.sin(2 * m.pi));                     // ~0
+    println("cos(3*pi):"); println(m.cos(3 * m.pi));                     // ~-1
+    println("sin(-pi/2):"); println(m.sin(-m.pi / 2));                   // ~-1
+    println("cos(-pi/2):"); println(m.cos(-m.pi / 2));                   // ~0
+    println("sin(-pi):"); println(m.sin(-m.pi));                         // ~0
+    println("cos(-pi):"); println(m.cos(-m.pi));                         // ~-1
+    println("sin(5*pi/6):"); println(m.sin(5 * m.pi / 6));               // ~0.5
+    println("cos(5*pi/6):"); println(m.cos(5 * m.pi / 6));               // ~-0.866
+    println("sin(7*pi/6):"); println(m.sin(7 * m.pi / 6));               // ~-0.5
+    println("cos(7*pi/6):"); println(m.cos(7 * m.pi / 6));               // ~-0.866
+    println("sin(11*pi/6):"); println(m.sin(11 * m.pi / 6));             // ~-0.5
+    println("cos(11*pi/6):"); println(m.cos(11 * m.pi / 6));             // ~0.866
+    println("sin(13*pi/6):"); println(m.sin(13 * m.pi / 6));             // ~0.5
+    println("cos(13*pi/6):"); println(m.cos(13 * m.pi / 6));             // ~0.866
+
+    // === INVERSE TRIGONOMETRIC TESTS: asin ===
+    println("=== INVERSE TRIGONOMETRIC TESTS: asin ===");
+    println("asin(0):"); println(m.asin(0.0));                           // 0
+    println("asin(1):"); println(m.asin(1.0));                           // ~pi/2
+    println("asin(-1):"); println(m.asin(-1.0));                         // ~-pi/2
+    println("asin(0.5):"); println(m.asin(0.5));                         // ~pi/6
+    println("asin(-0.5):"); println(m.asin(-0.5));                       // ~-pi/6
+
+    // === INVERSE TRIGONOMETRIC TESTS: atan ===
+    println("Atan Tests:");
+    println("atan(0):"); println(m.atan(0.0));                           // 0
+    println("atan(1):"); println(m.atan(1.0));                           // ~pi/4
+    println("atan(-1):"); println(m.atan(-1.0));                         // ~-pi/4
+    //println("atan(10):"); println(m.atan(10.0));                         // ~pi/2
+    println("atan(-10):"); println(m.atan(-10.0));                       // ~-pi/2
+    println("atan(MIN_FLOAT):"); println(m.atan(m.MIN_FLOAT));          // ≈ MIN_FLOAT
+    println("atan(-MIN_FLOAT):"); println(m.atan(-m.MIN_FLOAT));        // ≈ -MIN_FLOAT
+
+    // === TO DEGREES TEST ===
+    println("=== TO DEGREES TEST ===");
+    println("toDegrees(pi):"); println(m.toDegrees(m.pi));              // 180
+    println("toDegrees(0):"); println(m.toDegrees(0.0));                // 0
+    println("toDegrees(pi/2):"); println(m.toDegrees(m.pi / 2));        // 90
+
+    // === POWER FUNCTION TESTS ===
+    println("=== POWER FUNCTION TESTS ===");
+    println("pow(2, 0):"); println(m.pow(2, 0));                         // 1
+    println("pow(2, 3):"); println(m.pow(2, 3));                         // 8
+    println("pow(5, -2):"); println(m.pow(5, -2));                       // 0.04
+    println("pow(3, 1):"); println(m.pow(3, 1));                         // 3
+    println("pow(0, 1):"); println(m.pow(0, 1));                         // 0
+
+    // === ABS FUNCTION ===
+    println("=== ABS FUNCTION ===");
+    println("abs(5.0):"); println(m.abs(5.0));                           // 5.0
+    println("abs(-5.0):"); println(m.abs(-5.0));                         // 5.0
+    println("abs(0.0):"); println(m.abs(0.0));                           // 0.0
+
+
+    // === SQRT FUNCTION ===
+    println("=== SQRT FUNCTION ===");
+    println("sqrt(4):"); println(m.sqrt(4.0));                           // 2.0
+    println("sqrt(9):"); println(m.sqrt(9.0));                           // 3.0
+    println("sqrt(0):"); println(m.sqrt(0.0));                           // 0.0
+    println("sqrt(2):"); println(m.sqrt(2.0));                           // ~1.414
+
+
+    // === LN/EXPR FUNCTION ===
+    println("=== LN/EXPR FUNCTION ===");
+
+    println("ln(1.0):");         // ≈ 0.0
+    println(m.ln(1.0));
+
+    println("ln(e) ≈ 1.0:");     // e ≈ 2.7182818
+    println(m.ln(2.7182818));
+
+    println("ln(10.0):");        // ≈ 2.302585
+    println(m.ln(10.0));
+
+    println("ln(0.5):");         // ≈ -0.6931
+    println(m.ln(0.5));
+
+/*
+    // exit program thanks to an assertion in ln
+    println("ln(0.0)");
+    println(m.ln(0.0));          // should exit
+
+
+    println("ln(-1.0)");
+    println(m.ln(-1.0));         // should exit
+*/
+
+    println("exp(0.0):");        // ≈ 1.0
+    println(m.exp(0.0));
+
+    println("exp(1.0):");        // ≈ 2.7182818
+    println(m.exp(1.0));
+
+    println("exp(2.0):");        // ≈ 7.389056
+    println(m.exp(2.0));
+
+    println("exp(-1.0):");       // ≈ 0.3678794
+    println(m.exp(-1.0));
+
+    println("exp(-5.0):");       // ≈ 0.0067
+    println(m.exp(-5.0));
+
+    println("exp(ln(5.0)) ≈ 5.0:");
+    println(m.exp(m.ln(5.0)));
+
+    println("exp(ln(1.0)) ≈ 1.0:");
+    println(m.exp(m.ln(1.0)));
+
+    println("exp(ln(10.0)) ≈ 10.0:");
+    println(m.exp(m.ln(10.0)));
+
+    // === CEIL TESTS ===
+    println("=== CEIL TESTS ===");
+    println("ceil(3.7):"); println(m.ceil(3.7));        // 4
+    println("ceil(-2.3):"); println(m.ceil(-2.3));      // -2
+    println("ceil(5.0):"); println(m.ceil(5.0));        // 5
+    println("ceil(-5.6):"); println(m.ceil(-5.6));      // -5
+    println("ceil(0.0):"); println(m.ceil(0.0));        // 0
+    println("ceil(1.0001):"); println(m.ceil(1.0001));  // 2
+    println("ceil(-0.0001):"); println(m.ceil(-0.0001));// 0
+    println("ceil(MIN_FLOAT):"); println(m.ceil(m.MIN_FLOAT));   // 1
+    println("ceil(-MIN_FLOAT):"); println(m.ceil(-m.MIN_FLOAT)); // 0
+}
+
+

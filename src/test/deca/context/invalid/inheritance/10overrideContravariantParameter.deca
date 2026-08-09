@@ -1,0 +1,12 @@
+// Impossible de surcharger une méthode parente dans la classe enfant si les types des paramètres sont différents
+
+class Cube {}
+class RubiksCube extends Cube {}
+
+class Novice {
+    void play(RubiksCube r) {}
+}
+
+class Expert extends Novice {
+    void play(Cube r) {}
+}

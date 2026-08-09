@@ -1,0 +1,13 @@
+// Teste l'appel de méthode getOne() dans le constructeur de A, où la méthode retourne une valeur fixe, et vérifie l'affichage de la valeur assignée à a.
+class A{
+
+    float a = this.getOne(1);
+    float getOne(float a){
+        return 1;
+    }
+
+}
+{
+    A a = new A();
+    println(a.a);
+}

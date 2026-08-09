@@ -1,0 +1,17 @@
+//Teste l’exécution d’une méthode contenant une expression arithmétique profondément imbriquée suivie de l’affichage de variables locales, pour vérifier la gestion des calculs complexes et de la portée des variables.
+class A {
+    
+    void hello(){
+        int x = 55;
+        int y = 64654;
+        println(1 + (2 + (3 + (4 + (5 + (6 + (7 - (8 + (9 + (10 + (11 + (12 + (13 - (14 + (15 + (16 + (17 + (18 * (19 + 20)))))))))))))))))));
+        println(x);
+        println(y);
+    }
+
+}
+{
+
+    A a = new A();
+    a.hello();
+}

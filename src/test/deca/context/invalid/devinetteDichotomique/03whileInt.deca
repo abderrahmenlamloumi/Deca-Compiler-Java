@@ -1,0 +1,5 @@
+// Verifie que while n'accepte pas les entier
+
+{
+    while (1) {}
+}

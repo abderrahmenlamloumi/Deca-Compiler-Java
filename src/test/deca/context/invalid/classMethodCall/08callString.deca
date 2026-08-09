@@ -1,0 +1,7 @@
+// Verifie qu'on ne puisse pas appeler de méthode sur la classe primitive string
+
+{
+    println("".length());
+    println("hello".length());
+    println(("a" + "b" + "c").length());
+}

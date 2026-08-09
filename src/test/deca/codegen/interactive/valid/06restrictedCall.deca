@@ -1,0 +1,14 @@
+//test d'appel de method avec l'option limitant la pile
+// runtime-options: -p 13
+class Foo {
+    void say(int n) {
+        println("hello ", n);
+    }
+}
+
+{
+    new Foo().say(42);
+    new Foo().say(24);
+    new Foo().say(42);
+    new Foo().say(24);
+}

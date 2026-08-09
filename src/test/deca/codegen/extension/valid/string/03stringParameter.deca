@@ -1,0 +1,12 @@
+//test des strings en parametre dans les objets
+class Greetings {
+    string greet(string name) {
+        return "Hello " + name;
+    }
+}
+
+{
+    string alice = "Alice";
+    println(new Greetings().greet(alice));
+    println(new Greetings().greet("Bob"));
+}

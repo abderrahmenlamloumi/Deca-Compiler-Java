@@ -1,0 +1,7 @@
+//test de comparaison de string et null
+{
+    string str = null;
+    if (str == null) {
+        println("string is null");
+    }
+}

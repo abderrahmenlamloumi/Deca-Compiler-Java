@@ -1,0 +1,16 @@
+//Teste l’appel de méthodes avec paramètres (sum et sub) sur une instance de classe, en utilisant de grandes valeurs entières, pour vérifier la gestion correcte des opérations arithmétiques et des appels de méthode.
+class Calculator {
+    int sum(int a, int b) {
+        return a + b;
+    }
+    int sub(int a, int b) {
+        return a - b;
+    }
+}
+
+{
+    int x = 33603303, y = 9035870;
+    Calculator foo = new Calculator();
+    println(foo.sum(x, y));
+    println(foo.sub(x, y));
+}

@@ -1,0 +1,4 @@
+//test du printx d'un entier
+{
+    printx(5);
+}

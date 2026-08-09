@@ -1,0 +1,6 @@
+// Verifie que les strings ne puissent pas être comparé entre eux
+
+{
+    boolean b = "abc" < "abc";
+    println("???");
+}

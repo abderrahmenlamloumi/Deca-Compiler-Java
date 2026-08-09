@@ -1,0 +1,10 @@
+//test de l'option limitant la taille de la pile
+// runtime-options: -p 4
+class Foo {
+    void say() {
+        println("hello");
+    }
+}
+
+{
+}

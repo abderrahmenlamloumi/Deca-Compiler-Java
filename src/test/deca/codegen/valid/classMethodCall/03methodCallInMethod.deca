@@ -1,0 +1,17 @@
+//Teste l’appel d’une méthode avec paramètre qui invoque ensuite une autre méthode sur une nouvelle instance, afin de vérifier l’enchaînement des appels de méthode et la création d’objets intermédiaires.
+class A {
+
+    void hello(int a){
+        println("Hello ", a);
+        new A().hello2();
+    }
+    void hello2(){
+        println("Hello2");
+    }	
+}
+{
+    int b = 66;
+    A a = new A();
+    a.hello(b);
+}
+

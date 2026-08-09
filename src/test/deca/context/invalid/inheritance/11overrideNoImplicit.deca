@@ -1,0 +1,13 @@
+// Impossible de surcharger une méthode parente dans la classe enfant si les types des paramètres sont différents
+
+class Foo {
+    void use(int x) {
+        println(x);
+    }
+}
+
+class Bar extends Foo {
+    void use(float x) {
+        println(x);
+    }
+}

@@ -1,0 +1,6 @@
+#include "Paint.decah"
+
+{
+    Paint paint = new Paint();
+    paint.start();
+}

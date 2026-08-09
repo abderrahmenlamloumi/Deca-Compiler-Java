@@ -1,0 +1,10 @@
+// context/invalid (contrairement à Java)
+
+class A {
+  int f;
+}
+
+class B extends A {
+  int f() { }
+}
+

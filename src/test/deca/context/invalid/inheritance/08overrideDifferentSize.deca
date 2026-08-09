@@ -1,0 +1,9 @@
+// Impossible de surcharger une méthode parente dans la classe enfant si le nombre de paramètre est différent
+
+class A {
+    void m(int x) {}
+}
+
+class B extends A {
+    void m(int x, int y) {}
+}

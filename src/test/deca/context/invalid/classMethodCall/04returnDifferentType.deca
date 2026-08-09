@@ -1,0 +1,7 @@
+// Vérifie qu'une méthode qui renvoie un entier ne puisse pas retourner un flotant
+
+class Foo {
+    int one() {
+        return 2.0;
+    }
+}

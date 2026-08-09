@@ -1,0 +1,8 @@
+//Teste l'évaluation d'une expression arithmétique imbriquée dans A et son utilisation dans une nouvelle expression, vérifiant la gestion et l'écrasement des registres.
+class A {
+    int x = 1+(2+(3+(4+(5+(6+(7+(8+(9+(10)))))))));
+}
+{
+    int y = 1+(2+(3+(4+(5+(6+(7+(8+(9+(new A().x)))))))));
+    print(y);
+}

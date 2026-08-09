@@ -1,0 +1,12 @@
+// Description:
+//    Programme minimaliste assignant un boolean à un int avec un moins unaire
+//
+// Resultats:
+//    Erreur type incompatible
+//
+// Historique:
+//    cree le 08/04/2025
+
+{
+        int x = -true;
+}

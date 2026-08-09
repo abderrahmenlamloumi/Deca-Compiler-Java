@@ -1,0 +1,12 @@
+//Teste le passage de paramètres à une méthode, puis la modification locale de ces paramètres à l’intérieur de la méthode, pour vérifier que les affectations n’affectent pas les arguments originaux passés par valeur.
+class Foo {
+    void x(int x, int y) {
+        println(x, " ", y);
+        x = y = 0;
+        println(x, " ", y);
+    }
+}
+
+{
+    new Foo().x(5, 7);
+}

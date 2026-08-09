@@ -1,0 +1,13 @@
+// Description:
+//    Test overflow float avec division.
+//    Doit déclencher une erreur d'overflow float (à la compilation ou exécution).
+// Historique:
+//    Créé le 03/06/2025
+
+{
+
+    float x = 3.4e+38;
+
+    printlnx(x / 0.00000) ;
+
+}

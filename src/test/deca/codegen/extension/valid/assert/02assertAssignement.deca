@@ -1,0 +1,11 @@
+//test d'assert avec l'assignation et la comparaison
+{
+    boolean b;
+    assert(b = 0 == 0);
+
+    if (b) {
+        println("true");
+    } else {
+        println("false");
+    }
+}

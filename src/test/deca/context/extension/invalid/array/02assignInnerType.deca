@@ -1,0 +1,4 @@
+// Try to assign an int on an int[]
+{
+       int[] a = 4;
+}

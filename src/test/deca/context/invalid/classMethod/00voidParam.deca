@@ -1,0 +1,7 @@
+// Vérifie qu'une paramètre de méthode ne soit pas void
+
+class A {
+void pp(void a) {}
+void pi(float b) {}
+}
+{}

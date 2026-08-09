@@ -1,0 +1,9 @@
+// Verifie qu'on ne puisse pas appeler un attribut
+
+class Foo {
+    int x;
+}
+
+{
+    println(new Foo().x());
+}

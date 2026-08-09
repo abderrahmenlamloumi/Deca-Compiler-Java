@@ -1,0 +1,4 @@
+//test du include
+{
+#include "03includer.decah"
+}

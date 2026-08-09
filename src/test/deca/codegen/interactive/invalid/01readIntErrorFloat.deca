@@ -1,0 +1,4 @@
+//test du print d'un readint avec un decimal
+{
+    println(readInt());
+}

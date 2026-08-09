@@ -1,0 +1,6 @@
+{
+    float[] x = new float[20];
+    string[] y = new string[0];
+    println(x.length);
+    println(y.length);
+}

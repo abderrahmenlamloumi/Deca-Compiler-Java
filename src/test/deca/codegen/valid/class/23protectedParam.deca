@@ -1,0 +1,20 @@
+// Teste l'accès et la modification d'une variable protégée o héritée de la classe Foo dans la classe Bar, puis vérifie la propagation du changement à travers les méthodes take() et getO().
+class Foo {
+    protected int o = 349;
+}
+
+class Bar extends Foo {
+    Bar take(Bar b) {
+        b.o = 6;
+        return this;
+    }
+
+    int getO() {
+        return this.o;
+    }
+}
+
+{
+    Bar b = new Bar();
+    println(b.take(b).getO());
+}

@@ -1,0 +1,5 @@
+// Verifie qu'on ne puisse pas utiliser this en dehors d'une classe
+
+{
+    this;
+}

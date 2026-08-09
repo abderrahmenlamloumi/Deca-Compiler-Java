@@ -1,0 +1,17 @@
+// codegen/valid
+
+#include "Math.decah"
+
+{
+  Math m = new Math();
+  float min = 0x1.0p-149;
+  float r = m.ulp(0x1.0p-127);
+  float pi2 = m.asin(1.0);
+  float f = 0.3-pi2;
+  if (r == min) {
+    println("OK");
+  } else {
+    printlnx("KO: ", r, " vs ", min);
+  }
+  println(m.asin(m.sin(f))-f, " = ", 0, " environ");
+}

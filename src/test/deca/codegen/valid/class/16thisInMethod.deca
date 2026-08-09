@@ -1,0 +1,16 @@
+//Teste l'usage d'une variable d'instance boolean a dans la méthode foo(), où la variable locale a n'affecte pas la logique de l'instruction if.
+class A {
+    boolean a = true;
+    void foo() {
+        int a = 8;
+        if(this.a) {
+            print("ok");
+        } else {
+        print("ko");
+        }
+    }
+}
+{
+    A w = new A();
+    w.foo();
+}

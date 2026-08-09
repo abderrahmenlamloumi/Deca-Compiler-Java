@@ -1,0 +1,5 @@
+// Vérifie que l'opérateur ! ne fonctionne pas sur les entier
+
+{
+    !4;
+}

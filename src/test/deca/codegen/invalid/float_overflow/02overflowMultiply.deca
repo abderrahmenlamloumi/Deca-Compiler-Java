@@ -1,0 +1,13 @@
+// Description:
+//    tests de programme incorrect  (float avec une valeur infini) 
+//    une overflow erreur à l'etape C va se déclancher
+// Historique:
+//    cree le 03/06/2025
+
+{
+
+    float x = 0x1.fffffep127;
+    
+    printlnx(x * 2);
+
+}

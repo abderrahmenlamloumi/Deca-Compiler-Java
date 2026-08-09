@@ -1,0 +1,13 @@
+// Description:
+//    tests de programme incorrect  (float avec une valeur infini)
+//
+// Historique:
+//    cree le 03/06/2025
+
+{
+
+    float x = 0x1.ffffffep127;
+
+    printlnx(x);
+
+}

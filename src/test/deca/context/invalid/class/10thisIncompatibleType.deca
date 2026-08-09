@@ -1,0 +1,6 @@
+// Verifie que this ne peut pas être assigné à un type primitif
+
+class A {
+    int self = this;
+}
+{}

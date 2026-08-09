@@ -1,0 +1,6 @@
+// Verifie qu'un entier ne peux pas être converti en void
+
+{
+    int a = 5;
+    (void) (a);
+}

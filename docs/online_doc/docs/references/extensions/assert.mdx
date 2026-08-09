@@ -1,0 +1,39 @@
+import SandBox from "../../../src/components/SandBox";
+
+# Assert
+Cette extension du programme déca met à disposition du développeur la fontion assert().
+
+Cette fontion **fourni** une assertion ergonomique. Le message d'erreur permet de localisé efficacement l'assertion qui a échoué.
+Cette fonction **n'est pas** capable d'afficher un message personalisé.
+
+:::tip
+Activer l'extension avec l'option `-fassert`
+:::
+
+
+<SandBox precode='
+{
+    int a = 0;
+    assert(a == 0);
+}
+
+' />
+
+```txt title="Exemple"
+{
+    assert(booleanExpr);
+}
+```
+
+## Argument
+- `booleanExpr` doit obligatoirement être une expression de type `boolean`.
+- Une erreur est levée si la condition est de type `int`, `float`, `string`, ou `void`.
+
+## Comportement
+La fonction ne fait rien quand l'expression booléenne est évalué à `true`.
+A l'inverse, le programme s'arrête avec une erreur affichant le message `Assertion failed at line: x` qui indique la ligne de l'assertion.
+
+### Erreurs possibles
+
+> [Condition must be of type boolean](/docs/references/errors/compilation#condition-must-be-of-type-boolean)
+> [Assertion failed at line: x](/docs/references/errors/runtime#assertion-failed-at-line-x)

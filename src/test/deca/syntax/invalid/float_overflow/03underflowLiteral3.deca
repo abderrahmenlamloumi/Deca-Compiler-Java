@@ -1,0 +1,9 @@
+// Underflow avec valeur float hexadécimale
+
+{
+    if (0xabc.1P-180 == 0.0) {
+        println("Underflow detected");
+    } else {
+        println("No underflow");
+    }
+}

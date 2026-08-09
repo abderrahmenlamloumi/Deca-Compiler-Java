@@ -1,0 +1,6 @@
+// Assignation d'une valeur au mauvais type
+
+class Holder {
+    boolean o = 5; // Invalide
+}
+{}

@@ -1,0 +1,35 @@
+import SandBox from "../../../src/components/SandBox";
+
+# Print
+
+## Print, Println
+
+<SandBox precode='
+{
+    int a = 5;
+    print("aaa");
+    println("bbb");
+    println("ccc", "dddd", a);
+    println(2.5);
+    printlnx(2.5);
+
+}
+
+' />
+
+---
+
+`Print` et `Println` sont des instructions permettant d'écrire dans la sortie standard du programme.
+
+Ils peuvent prendre autant de paramètres que nécessaires.
+
+Les paramètres doivent être de type String, int, float ou une variable du même type.
+
+**Erreurs possibles**
+
+> [Only string, int and float may be printed](/docs/references/errors/compilation#only-string-int-and-float-may-be-printed)
+
+## Printx Printlnx
+
+
+`Printx` et `Printlnx` sont respectivement identiques aux instructions `Print` est `Println`  mais écrivent la valeur des décimaux en hexadecimal.

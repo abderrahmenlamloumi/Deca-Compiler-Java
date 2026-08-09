@@ -1,0 +1,16 @@
+//Teste l’évolution d’un attribut d’instance (seed) à travers plusieurs appels à une méthode (next) implémentant un générateur pseudo-aléatoire simple, pour vérifier la persistance de l’état entre les appels.
+class LGC {
+    int seed = 0;
+
+    int next() {
+        seed = (137 * seed + 187) % 256;
+        return seed;
+    }
+}
+
+{
+    LGC lgc = new LGC();
+    println(lgc.next());
+    println(lgc.next());
+    println(lgc.next());
+}

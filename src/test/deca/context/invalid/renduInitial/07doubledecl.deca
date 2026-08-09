@@ -1,0 +1,5 @@
+// Declare a variable twice on same declaration line
+{
+	int x, y, z, y ;
+	z=1 ;
+}

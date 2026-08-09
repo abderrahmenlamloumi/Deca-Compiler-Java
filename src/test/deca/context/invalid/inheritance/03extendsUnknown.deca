@@ -1,0 +1,3 @@
+// Héritage d'une classe non-existante
+
+class Test extends Unknown {}

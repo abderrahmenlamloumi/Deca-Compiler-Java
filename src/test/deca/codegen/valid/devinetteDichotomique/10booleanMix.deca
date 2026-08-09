@@ -1,0 +1,13 @@
+//test des operateurs logique avec des booleans
+{
+    boolean t = true, f = false;
+    if (f || t || f) { println("true"); } else { println("false"); }
+    if (f && t && f) { println("true"); } else { println("false"); }
+    if (t && t && !t) { println("true"); } else { println("false"); }
+    if (t && (!f || !f)) { println("true"); } else { println("false"); }
+    if (t && (!!f || !!f)) { println("true"); } else { println("false"); }
+    if (f || (!f || !f)) { println("true"); } else { println("false"); }
+    if (f || (!f && !f)) { println("true"); } else { println("false"); }
+    if (7 >= 7 && !(0 == 0 || 10 < 0)) { println("true"); } else { println("false"); }
+    if (7 >= 7 && !(0 == 2 || 10 < 0)) { println("true"); } else { println("false"); }
+}

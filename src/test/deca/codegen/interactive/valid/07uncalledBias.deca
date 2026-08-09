@@ -1,0 +1,12 @@
+//test du calcul de TSTO lors de l'appel de methode avec multitude de parametre
+// runtime-options: -p 13
+class Foo {
+    int unused(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o) {}
+    void sayDone() {
+        println("done");
+    }
+}
+
+{
+    new Foo().sayDone();
+}

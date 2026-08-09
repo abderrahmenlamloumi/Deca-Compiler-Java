@@ -1,0 +1,15 @@
+{
+    float u = 0x0.0p-190f;
+    float v = 0X0.0p0;
+    float w = 0.0f;
+    float x = 0000.0;
+    float y = 0x0.0P0;
+    float z = 0.0e0;
+    if (u == v) { println("true"); } else { println("false"); }
+    if (v == w) { println("true"); } else { println("false"); }
+    if (w == x) { println("true"); } else { println("false"); }
+    if (x == y) { println("true"); } else { println("false"); }
+    if (y == z) { println("true"); } else { println("false"); }
+    if (0 == y) { println("true"); } else { println("false"); }
+    if (y == 0) { println("true"); } else { println("false"); }
+}

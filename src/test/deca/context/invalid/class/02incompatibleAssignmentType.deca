@@ -1,0 +1,10 @@
+// Verifie qu'on ne puisse pas assigner une classe à un type primitif
+
+class Holder {
+    int x = 1;
+    int y = 2;
+    int z = 3;
+}
+{
+    int h = new Holder();
+}

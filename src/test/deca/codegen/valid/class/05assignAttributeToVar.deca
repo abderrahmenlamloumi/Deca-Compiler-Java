@@ -1,0 +1,11 @@
+//Teste l'accès à la variable x d'une instance de la classe A et l'affichage de sa valeur, qui est 5.
+class A {
+    int x = 5 ;
+}
+
+
+{
+    A a = new A();
+    int y = a.x;
+    print(y);
+}

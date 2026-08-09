@@ -1,0 +1,9 @@
+// Verifie l'incompatibilité des types
+
+class A {
+void pi(float b) {
+int a = b;
+}
+}
+{
+}

@@ -1,0 +1,13 @@
+//Teste l'accès à l'objet Bar à travers Foo, puis modifie sa variable x, affichant la valeur 5.
+class Foo {
+    Bar b = new Bar();
+}
+class Bar {
+    int x;
+}
+{
+    Foo foo = new Foo();
+    Bar bar = foo.b;
+    foo.b.x = 5;
+    println(bar.x); // 5
+}

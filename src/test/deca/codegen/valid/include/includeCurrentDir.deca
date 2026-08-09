@@ -1,0 +1,5 @@
+//test du include et son utilisation
+{
+#include "includeCurrentDir.decah"
+print(x);
+}

@@ -1,0 +1,12 @@
+// Teste l'accès à une variable protégée marcassins via une méthode dans la même classe, vérifiant la visibilité de la variable à l'intérieur de la classe.
+class Laie {
+    protected int marcassins = 3;
+
+    int countMarcassins() {
+        return this.marcassins;
+    }
+}
+{
+    Laie proieObelix = new Laie();
+    println(proieObelix.countMarcassins());
+}

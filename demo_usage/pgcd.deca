@@ -1,0 +1,36 @@
+class Math {
+
+    int pgcd(int x, int y) {
+        int t;
+        while (y != 0) {
+            t = y;
+            y = x % y;
+            x = t;
+        }
+        return x;
+    }
+
+
+}
+
+{
+    int x, y;
+    int p;
+
+    Math m = new Math();
+
+
+    print("Saisir le premier entier: ");
+    x = readInt();
+
+    println();
+
+    print("Saisir le deuxième entier: ");
+    y = readInt();
+
+    println();
+
+
+    p = m.pgcd(x, y);
+    println("Le pgcd de ", x, " et ", y, " est: ", p);
+}

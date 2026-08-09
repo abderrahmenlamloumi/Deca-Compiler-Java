@@ -1,0 +1,8 @@
+//test d'allocation memoire avec l'option limitant le tas
+// runtime-options: -t 1
+{
+    new Object();
+    println("first object was allocated");
+    new Object();
+    println("second object was allocated");
+}

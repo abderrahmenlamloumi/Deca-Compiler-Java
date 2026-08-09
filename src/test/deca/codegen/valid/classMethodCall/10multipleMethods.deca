@@ -1,0 +1,173 @@
+//Teste le polymorphisme en invoquant des méthodes sur une instance de sous-classe (Majuscule) référencée par une variable de la superclasse (minuscule), afin de vérifier que les méthodes redéfinies sont correctement résolues dynamiquement à l’exécution.
+class minuscule {
+    void a(){
+        println("a");
+    }
+    void b(){
+        println("b");
+    }
+    void c(){
+        println("c");
+    }
+    void d(){
+        println("d");
+    }
+    void e(){
+        println("e");
+    }
+    void f(){
+        println("f");
+    }
+    void g(){
+        println("g");
+    }
+    void h(){
+        println("h");
+    }
+    void i(){
+        println("i");
+    }
+    void j(){
+        println("j");
+    }
+    void k(){
+        println("k");
+    }
+    void l(){
+        println("l");
+    }
+    void m(){
+        println("m");
+    }
+    void n(){
+        println("n");
+    }
+    void o(){
+        println("o");
+    }
+    void p(){
+        println("p");
+    }
+    void q(){
+        println("q");
+    }
+    void r(){
+        println("r");
+    }
+    void s(){
+        println("s");
+    }
+    void t(){
+        println("t");
+    }
+    void u(){
+        println("u");
+    }
+    void v(){
+        println("v");
+    }
+    void w(){
+        println("w");
+    }
+    void x(){
+        println("x");
+    }
+    void y(){
+        println("y");
+    }
+    void z(){
+        println("z");
+    }
+
+
+}
+
+class Majuscule extends minuscule {
+    void a(){
+            println("A");
+        }
+        void b(){
+            println("B");
+        }
+        void c(){
+            println("C");
+        }
+        void d(){
+            println("D");
+        }
+        void e(){
+            println("E");
+        }
+        void f(){
+            println("F");
+        }
+        void g(){
+            println("G");
+        }
+        void h(){
+            println("H");
+        }
+        void i(){
+            println("I");
+        }
+        void j(){
+            println("J");
+        }
+        void k(){
+            println("K");
+        }
+        void l(){
+            println("L");
+        }
+        void m(){
+            println("M");
+        }
+        void n(){
+            println("N");
+        }
+        void o(){
+            println("O");
+        }
+        void p(){
+            println("P");
+        }
+        void q(){
+            println("Q");
+        }
+        void r(){
+            println("R");
+        }
+        void s(){
+            println("S");
+        }
+        void t(){
+            println("T");
+        }
+        void u(){
+            println("U");
+        }
+        void v(){
+            println("V");
+        }
+        void w(){
+            println("W");
+        }
+        void x(){
+            println("X");
+        }
+        void y(){
+            println("Y");
+        }
+        void z(){
+            println("Z");
+        }
+}
+
+
+{
+    minuscule min = new Majuscule();
+    min.z();
+    min.o();
+    min.r();
+    min.o();
+}

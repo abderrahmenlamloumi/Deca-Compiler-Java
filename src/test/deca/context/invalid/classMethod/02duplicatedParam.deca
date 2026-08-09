@@ -1,0 +1,9 @@
+// Vérifie que deux paramètres ne peuvent pas avoir le même nom
+
+class A {
+void pi(float b, float b) {
+int a = b;
+}
+}
+{
+}

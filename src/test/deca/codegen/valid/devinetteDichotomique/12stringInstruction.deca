@@ -1,0 +1,4 @@
+//test de compilation avec une chaine vide
+{
+    "";
+}

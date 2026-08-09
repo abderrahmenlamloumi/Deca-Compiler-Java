@@ -1,0 +1,35 @@
+/* Généraliser votre construction "assert" pour qu'elle soit de la forme
+
+      assert(e0,e1,...,en);
+
+   avec e0: expression booleenne testée
+   
+   et e1, ..., en: pour émettre un message d'erreur qui finit par
+           "println(e1,...,en);"
+   avec les mêmes vérifications contextuelles sur e1, .., en.
+
+DEMO sur ce test fourni.   
+*/
+
+{
+  int n=42;
+  float f=3.14;
+  int n0;
+  float f0;
+  print("entrez un entier:"); n0=readInt();
+  print("entrez un flottant:"); f0=readFloat();
+  
+  assert(n0==n && f0==f, "On attendait ",n," et ",f);
+  // fait un peu la même chose que le code commenté ci-dessous,
+  // mais avec (si possible!) le message "On attendait ..."
+  // *après* le "Assertion failed"
+  /*
+  if (! (n0==n && f0==f) ) {
+    println("On attendait ",n," et ",f);
+    assert(false);
+  }
+  */
+
+  println("Bravo!");
+}
+  

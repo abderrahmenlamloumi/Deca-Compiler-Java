@@ -1,0 +1,6 @@
+// Try to declare with a variable name as type
+{
+	int x;
+	x y;
+	y=1;
+}

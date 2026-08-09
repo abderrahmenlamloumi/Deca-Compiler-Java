@@ -1,0 +1,17 @@
+// Impossible d'assigner l'attribut d'un attribut objet à l'initialisation (attribut pas initialisé à la 2ème passe donc pas l'attribut n'a pas d'attribut)
+
+class A {
+    B b = new B();
+    int x = 5;
+    b.x = 1;
+}
+
+class B{
+    int x = 10;
+}
+
+
+{
+    A a = new A();
+    println(a.b.x);
+}

@@ -1,0 +1,6 @@
+//test de stockage de variable avec l'option limitant la pile
+// runtime-options: -p 1
+{
+    int x = 0;
+    println(x);
+}

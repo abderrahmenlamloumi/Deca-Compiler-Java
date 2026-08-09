@@ -1,0 +1,5 @@
+// Vérifie que l'expression droite de l'opérateur instanceof doit être une classe
+
+{
+    new Object() instanceof boolean;
+}

@@ -1,0 +1,13 @@
+// Cast une classe en null
+
+class A{
+    void affiche(){
+        println("KO");
+    }
+}
+{
+
+    A a = new A();
+    a = (null) (a);
+    a.affiche();
+}

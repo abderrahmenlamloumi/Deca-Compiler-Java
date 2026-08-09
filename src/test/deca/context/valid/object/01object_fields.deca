@@ -1,0 +1,8 @@
+// Test que les attributs d'une classe soient bien prisent en compte
+
+class A {
+    int x;
+    boolean b;
+    float z;
+}
+{}

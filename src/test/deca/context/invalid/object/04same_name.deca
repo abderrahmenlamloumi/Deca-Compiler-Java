@@ -1,0 +1,7 @@
+// Impossible de déclarer 2 fois la même classe
+
+class Holder {
+    boolean o = 5; // Invalide
+}
+class Holder {}
+{}

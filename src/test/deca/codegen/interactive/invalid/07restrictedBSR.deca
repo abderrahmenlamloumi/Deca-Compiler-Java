@@ -1,0 +1,11 @@
+//test si le calcul de TSTO prend en compte le BSR
+// runtime-options: -p 7
+class Foo {
+    void say() {
+        println("hello");
+    }
+}
+
+{
+    new Foo();
+}

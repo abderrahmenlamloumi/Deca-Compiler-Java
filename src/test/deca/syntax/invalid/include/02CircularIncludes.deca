@@ -1,0 +1,4 @@
+// Include circulaire (B include A et A include B)
+
+#include "02libraryB.decah"
+println(3);

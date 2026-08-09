@@ -1,0 +1,9 @@
+// Verifie qu'une classe ne peux pas être converti en une classe sans lien de parenté
+
+
+class Foo {}
+class Bar {}
+
+{
+    (Bar) (new Foo());
+}

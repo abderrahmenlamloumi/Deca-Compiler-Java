@@ -1,0 +1,5 @@
+//test printlnx d'une variablede type entier
+{
+    float x = 5;
+    printlnx(x);
+}

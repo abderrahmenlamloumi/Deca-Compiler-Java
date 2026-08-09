@@ -1,0 +1,13 @@
+// test this.this, this attend un IDENT
+
+class A {
+    int a = 8;
+    int foo()
+    {
+        print(this.this.a);
+    }
+}
+{
+    A w = new A();
+    w.foo();
+}

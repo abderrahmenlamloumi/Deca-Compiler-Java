@@ -1,0 +1,7 @@
+//test de l'option limitant le nombre de registre
+// compiler-options: -r 4
+// runtime-options: -p 1
+{
+    println(1 + (2 + (3 + (4 + 5))));
+    println(1 + (2 + (3 + (4 + 5))));
+}

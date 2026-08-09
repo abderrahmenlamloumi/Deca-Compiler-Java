@@ -1,0 +1,7 @@
+//Teste la conversion de float en int pour des valeurs scientifiques, affichant respectivement 2147483647 et -2147483648 (les limites d'un int).
+{
+    float x = 3.9e10;
+    println((int) (x));
+    x = -8.8e12;
+    println((int) (x));
+}

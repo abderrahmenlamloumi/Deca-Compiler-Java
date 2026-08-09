@@ -1,0 +1,11 @@
+//test d'acces aux variables contenu dans un array + expr 'i' en index
+{
+    int size = 10;
+    int[] tab = new int[size];
+    int i = 0;
+    while (i < 5) {
+        tab[i] = i + 1;
+        println("tab[" , i, "] : ", tab[i]);
+        i = i + 1;
+    }
+}

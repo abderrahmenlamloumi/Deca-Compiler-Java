@@ -1,0 +1,6 @@
+// Verifie qu'un string ne peux pas être converti en Objet (les String ne sont pas une classe à proprement parlé mais built-in)
+
+
+{
+    Object obj = (Object) ("coucou");
+}

@@ -1,0 +1,13 @@
+// Description:
+//    Programme minimaliste faisant une opération avec un moins unaire
+//
+// Resultats:
+//      1
+//
+// Historique:
+//    cree le 08/04/2025
+
+{
+        int z = 5 + - 4;
+        println(z);
+}

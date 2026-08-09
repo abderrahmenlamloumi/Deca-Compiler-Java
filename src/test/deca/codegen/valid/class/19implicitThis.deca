@@ -1,0 +1,13 @@
+//Teste l'initialisation d'une variable b avec la valeur de a dans la même classe, puis l'accès à a via la méthode foo(), affichant la valeur de a.
+class A {
+    int a = 8;
+    int b = a;
+
+    int foo(){
+        return a;
+    }
+}
+{
+    A a = new A();
+    print(a.foo());
+}

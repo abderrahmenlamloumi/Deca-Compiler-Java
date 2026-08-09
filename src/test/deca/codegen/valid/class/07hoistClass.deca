@@ -1,0 +1,12 @@
+//Teste l'accès à la variable value d'une instance de Node à travers une instance de List, affichant 10.
+class List {
+    Node first = new Node();
+}
+class Node {
+    int value = 10;
+}
+
+{
+    List l = new List();
+    println(l.first.value);
+}

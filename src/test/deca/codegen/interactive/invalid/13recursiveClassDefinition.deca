@@ -1,0 +1,8 @@
+//test d'initialion recursif d'un objet avec limitation de la pile
+// runtime-options: -p 100
+class A{
+    A a = new A();
+}
+{
+    new A();
+}
