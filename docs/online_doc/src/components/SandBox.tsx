@@ -7,20 +7,31 @@ const SandBox = ({precode = ""}) => {
     const [error, setError] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    //TODO: add backend service to execute the code and return the result
     const execute = useCallback(async () => {
         setIsLoading(true);
-        const promise = await fetch("https://abderrahmenlamloumi.github.io/Deca-Compiler-Java/compile", {
-            method: "POST",
-            body: code,
-        })
-        if (promise.status === 200) {
-            const data = await promise.json()
-            setResult(data.ima)
-            setError(data.decac)
-        } else {
-            setResult("Error occurred while fetching code");
+        setError(null);
+        try {
+            const response = await fetch("https://gl.glrm.fr/compile", {
+                method: "POST",
+                body: code,
+            });
+
+            if (!response.ok) {
+                throw new Error(`Compiler service returned HTTP ${response.status}`);
+            }
+
+            const data = await response.json();
+            setResult(data.ima ?? "");
+            setError(data.decac ?? null);
+        } catch (executionError) {
+            setResult("");
+            setError(executionError instanceof Error
+                ? executionError.message
+                : "Unable to reach the compiler service");
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
 
     }, [code])
 
